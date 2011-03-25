@@ -24,7 +24,7 @@
 #define LNG_ONLY_IN_SB            "Only Standby"
 #define LNG_VIBRATE               "Vibrate when you switch"
 #define LNG_REDRAW_SB             "Redraw StandByBook"
-#define LNG_CLS_A_W_C             "Close current elf when close"
+#define LNG_CLS_A_W_C             "Close current elf when exit"
 #define LNG_REPEAT                "Repeat launching on a key"
 #define LNG_REPEAT_KEY            "Repeat launching key"
 /* ----------------------------------------- */

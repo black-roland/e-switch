@@ -9,10 +9,10 @@
 #define ELF_VERSION L"1.1"
 
 /* ----------- Прототипы функций ----------- */
-int Switch (int, int, int);
+int Switch (int, int, int, LPARAM, DISP_OBJ*);
 void FirstRun ();
 void CloseAndRun (int, int);
-int RepeatELF (int, int, int);
+int RepeatELF (int, int, int, LPARAM, DISP_OBJ*);
 /* ----------------------------------------- */
 
 /* ------ Глобальные переменные и пр. ------ */
@@ -42,7 +42,7 @@ int IsOnStandby ()
     return 0;
 }
 
-void DelayedFirstRun (u16 timerID, void*)
+void DelayedFirstRun (u16 timerID , LPARAM n)
 {
   FirstRun();
 }
@@ -51,8 +51,8 @@ int Reconfig (void*, BOOK* book)
 {
   if (ELFs[ActiveELFNumber].state != 2)
       CloseAndRun(ActiveELFNumber, -1);
-  ModifyKeyHook(RepeatELF, 0);
-  Timer_Set(500, DelayedFirstRun, 0);
+  ModifyKeyHook(RepeatELF, KEY_HOOK_REMOVE, 0);
+  Timer_Set(100, DelayedFirstRun, 0);
   
   return 1;
 }
@@ -164,8 +164,9 @@ typedef struct
 
 int ShowAuthorInfo (void *mess ,BOOK* book)
 {
-  MSG * msg = (MSG*)mess;
-  MessageBox(EMPTY_SID, Str2ID(_T("E-switch\n") ELF_VERSION _T(" ") LNG_NAME _T("\n\n(c) Black_Roland\nE-mail:\nblack_roland@mail.ru") LNG_ABOUT_TRANSLATOR, 0, SID_ANY_LEN), 0, 1, 5000, msg->book);
+  //MSG * msg = (MSG*)mess;
+  //MessageBox(EMPTY_TEXTID, Str2ID(_T("E-switch\n") ELF_VERSION _T(" ") LNG_NAME _T("\n\n(c) Black_Roland\nE-mail:\nblack_roland@mail.ru") LNG_ABOUT_TRANSLATOR, 0, TEXTID_ANY_LEN), 0, 1, 5000, msg->book);
+  //MessageBox(EMPTY_TEXTID, TextID_Create(_T("E-switch\n") ELF_VERSION _T(" ") LNG_NAME _T("\n\n(c) Black_Roland\nE-mail:\nblack_roland@mail.ru") LNG_ABOUT_TRANSLATOR, 0, TEXTID_ANY_LEN), 0, 1, 5000, msg->book);
   
   return 1;
 }
@@ -188,8 +189,8 @@ void elf_exit(void)
 
 void onCloseESBook (BOOK* book)
 {
-  ModifyKeyHook(Switch, 0);
-  ModifyKeyHook(RepeatELF, 0);
+  ModifyKeyHook(Switch, KEY_HOOK_REMOVE, 0);
+  ModifyKeyHook(RepeatELF, KEY_HOOK_REMOVE, 0);
   LoadSaveLastState (1);
   if ((BCFG_Settings_ClsActELFWhnEswtchCls) && (ELFs[ActiveELFNumber].state != 2))
       CloseAndRun(ActiveELFNumber, -1);
@@ -213,6 +214,27 @@ int BookToFind (BOOK* book, int* param)
   return 0;
 }
 
+void DelayedRun (u16 timerID , LPARAM n)
+{
+  if (n !=-1) // Запуск следующего эльфа
+  {
+    W_FSTAT stat;
+    
+    if (w_fstat(ELFs[n].path, &stat) == 0) // Если есть файл эльфа
+    {
+      if (elfload(ELFs[n].path, 0, 0, 0) != 0) // Запустить следующий эльф
+        MessageBox(EMPTY_TEXTID, STR(LNG_ELF_START_ERROR), 0, 1, 5000, 0); // Если запуск неудачный
+    }
+    else
+      MessageBox(EMPTY_TEXTID, STR(LNG_ELF_NOT_FOUND), 0, 1, 5000, 0); // Если нет файла эльфа
+  }
+  if (BCFG_Settings_RedrawStandByWhenSwitch) // Перерисовка StandBy
+  {
+    DISP_OBJ* RedrawGUI = GUIObject_GetDispObject(SBY_GetStatusIndication(Find_StandbyBook())); // Не оптимально, но в глобальные переменные не заносится
+    DispObject_InvalidateRect(RedrawGUI, 0);
+  }
+}
+
 void CloseAndRun (int p, int n) // Функция переключения эльфов
 {
   if (p !=-1) // Закрытие предыдущего эльфа
@@ -224,30 +246,33 @@ void CloseAndRun (int p, int n) // Функция переключения эльфов
       if (bkid != -1) // Если книга не найдена
         UI_Event_toBookID(ELF_TERMINATE_EVENT, bkid); // Закрыть предыдущий эльф
       else
-        MessageBox(EMPTY_SID, STR(LNG_BOOK_NOT_FOUND), 0, 1, 5000, 0);
+        MessageBox(EMPTY_TEXTID, STR(LNG_BOOK_NOT_FOUND), 0, 1, 5000, 0);
     }
     else
-      MessageBox(EMPTY_SID, STR(LNG_INVALID_BOOK_NAME), 0, 1, 5000, 0);
-  if (n !=-1) // Запуск следующего эльфа
+      MessageBox(EMPTY_TEXTID, STR(LNG_INVALID_BOOK_NAME), 0, 1, 5000, 0);
+  if (n !=-1)
+    Timer_Set(100, DelayedRun, n);
+  // Переехало
+  /*if (n !=-1) // Запуск следующего эльфа
   {
     W_FSTAT stat;
     
     if (w_fstat(ELFs[n].path, &stat) == 0) // Если есть файл эльфа
     {
       if (elfload(ELFs[n].path, 0, 0, 0) != 0) // Запустить следующий эльф
-        MessageBox(EMPTY_SID, STR(LNG_ELF_START_ERROR), 0, 1, 5000, 0); // Если запуск неудачный
+        MessageBox(EMPTY_TEXTID, STR(LNG_ELF_START_ERROR), 0, 1, 5000, 0); // Если запуск неудачный
     }
     else
-      MessageBox(EMPTY_SID, STR(LNG_ELF_NOT_FOUND), 0, 1, 5000, 0); // Если нет файла эльфа
+      MessageBox(EMPTY_TEXTID, STR(LNG_ELF_NOT_FOUND), 0, 1, 5000, 0); // Если нет файла эльфа
   }
   if (BCFG_Settings_RedrawStandByWhenSwitch) // Перерисовка StandBy
   {
     DISP_OBJ* RedrawGUI = GUIObject_GetDispObject(SBY_GetStatusIndication(Find_StandbyBook())); // Не оптимально, но в глобальные переменные не заносится
     DispObject_InvalidateRect(RedrawGUI, 0);
-  }
+  }*/
 }
 
-int Switch (int key, int r1, int mode) // Обработчик клавиши, он же калькулятор эльфов
+int Switch (int key, int r1 , int mode, LPARAM lparam, DISP_OBJ* dispobj) // Обработчик клавиши, он же калькулятор эльфов
 {
   if ((key == BCFG_Settings_SwitchingKey_KeyCode) &&
       (mode == BCFG_Settings_SwitchingKey_KeyMode))
@@ -291,7 +316,7 @@ int Switch (int key, int r1, int mode) // Обработчик клавиши, он же калькулятор 
         while (!f);
       }
       else
-        MessageBox(EMPTY_SID, STR(LNG_ALL_ACTS_DISABLED), 0, 1, 5000, 0);
+        MessageBox(EMPTY_TEXTID, STR(LNG_ALL_ACTS_DISABLED), 0, 1, 5000, 0);
       
       return -1;
     }
@@ -299,7 +324,7 @@ int Switch (int key, int r1, int mode) // Обработчик клавиши, он же калькулятор 
   return 0;
 }
 
-int RepeatELF (int key, int r1, int mode)
+int RepeatELF (int key, int r1 , int mode, LPARAM lparam, DISP_OBJ* dispobj)
 {
   if ((key == BCFG_Settings_RepeatActiveELF_KeyCode) &&
       (mode == BCFG_Settings_RepeatActiveELF_KeyMode))
@@ -375,7 +400,7 @@ void FirstRun () // Чтение настроек и запуск первого активного действия из списк
         ActiveELFNumber = -1;
         f = true;
         #ifndef NDEBUG
-          MessageBox(EMPTY_SID, STR(LNG_ALL_ACTS_DISABLED), 0, 1, 5000, 0);
+          MessageBox(EMPTY_TEXTID, STR(LNG_ALL_ACTS_DISABLED), 0, 1, 5000, 0);
         #endif
       }
     }
@@ -383,29 +408,23 @@ void FirstRun () // Чтение настроек и запуск первого активного действия из списк
   while (!f);
   // Повторный запуск
   if (BCFG_Settings_RepeatActiveELF)
-    ModifyKeyHook(RepeatELF, 1);
+    ModifyKeyHook(RepeatELF, KEY_HOOK_ADD, 0);
 }
 
 int main ()
 {
   if (FindBookEx(BookToFind, (int*)"E-switch")) // Проверка на запущенность
   {
-    MessageBox(EMPTY_SID, STR(LNG_ALREADY_RUNNED), 0, 1, 5000, 0);
+    MessageBox(EMPTY_TEXTID, STR(LNG_ALREADY_RUNNED), 0, 1, 5000, 0);
     SUBPROC(elf_exit);
     
     return 0;
   }
   CreateESBook();
   LoadSaveLastState(0);
-  /*#ifndef NDEBUG
-    Timer_Set(500, DelayedFirstRun, 0);
-  #endif
-  #ifdef NDEBUG
-    FirstRun ();
-  #endif*/
   FirstRun ();
   AudioControl_Init();
-  ModifyKeyHook(Switch, 1);
+  ModifyKeyHook(Switch, KEY_HOOK_ADD, 0);
   
   return 0;
 }
