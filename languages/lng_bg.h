@@ -24,7 +24,7 @@
 #define LNG_ONLY_IN_SB            "Само в режим на готовност"
 #define LNG_VIBRATE               "Вибрация при включване"
 #define LNG_REDRAW_SB             "Изобразяване на StandByBook"
-#define LNG_CLS_A_W_C             "Затвори на елф, когато приключи"
+#define LNG_CLS_A_W_C             "Затвори текущия елф при изход"
 #define LNG_REPEAT                "Повторете стартирането на ключ"
 #define LNG_REPEAT_KEY            "Повторете стартирания ключ"
 /* ----------------------------------------- */
