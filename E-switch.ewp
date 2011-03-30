@@ -308,7 +308,7 @@
         </option>
         <option>
           <name>PreInclude</name>
-          <state></state>
+          <state>..\deleaker\mem2.h</state>
         </option>
         <option>
           <name>CompilerMisraRules</name>
@@ -5794,9 +5794,6 @@
     </file>
   </group>
   <file>
-    <name>$EW_DIR$\ARM\C++\_cpp2.cpp</name>
-  </file>
-  <file>
     <name>$PROJ_DIR$\conf_loader.cpp</name>
   </file>
   <file>
@@ -7384,6 +7381,9 @@
   </file>
   <file>
     <name>$PROJ_DIR$\main.cpp</name>
+  </file>
+  <file>
+    <name>$EW_DIR$\ARM\deleaker\mem2.cpp</name>
   </file>
 </project>
 
