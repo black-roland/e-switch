@@ -6,13 +6,16 @@
 
 #define ELF_BCFG_CONFIG_EVENT 994
 
-#define ELF_VERSION L"1.1"
+#define ELF_VERSION L"1.2"
 
 /* ----------- Прототипы функций ----------- */
 int Switch (int, int, int, LPARAM, DISP_OBJ*);
 void FirstRun ();
 void CloseAndRun (int, int);
 int RepeatELF (int, int, int, LPARAM, DISP_OBJ*);
+int BookToFind (BOOK*, int*);
+void ExecuteFirstELF ();
+void InitVariables ();
 /* ----------------------------------------- */
 
 /* ------ Глобальные переменные и пр. ------ */
@@ -42,17 +45,35 @@ int IsOnStandby ()
     return 0;
 }
 
-void DelayedFirstRun (u16 timerID , LPARAM n)
-{
-  FirstRun();
-}
-
 int Reconfig (void*, BOOK* book)
 {
-  if (ELFs[ActiveELFNumber].state != 2)
-      CloseAndRun(ActiveELFNumber, -1);
-  ModifyKeyHook(RepeatELF, KEY_HOOK_REMOVE, 0);
-  Timer_Set(100, DelayedFirstRun, 0);
+  ELF oldActiveELFNumber = ELFs[ActiveELFNumber];
+  int oldBCFG_Settings_RepeatActiveELF = BCFG_Settings_RepeatActiveELF;
+  InitVariables ();
+  
+  // Убийство старого эльфа если реконфиг и они отличаются
+  if ((oldActiveELFNumber.state != ELFs[ActiveELFNumber].state) ||
+      (oldActiveELFNumber.path != ELFs[ActiveELFNumber].path) ||
+        (oldActiveELFNumber.book != ELFs[ActiveELFNumber].book))
+  {
+    if ((ActiveELFNumber != -1) && (oldActiveELFNumber.state != 2))
+    {
+      if (strcmp(oldActiveELFNumber.book, "E-switch") != 0) // Защита от суицида
+      {
+        BOOK* bk = FindBookEx (BookToFind, (int*)oldActiveELFNumber.book);
+        int bkid = BookObj_GetBookID (bk);
+        
+        if (bkid != -1) // Если книга найдена
+          UI_Event_toBookID(ELF_TERMINATE_EVENT, bkid); // Закрыть предыдущий эльф
+      }
+    }
+    ExecuteFirstELF ();
+  }
+  if (oldBCFG_Settings_RepeatActiveELF != BCFG_Settings_RepeatActiveELF)
+    if (BCFG_Settings_RepeatActiveELF)
+      ModifyKeyHook(RepeatELF, KEY_HOOK_ADD, 0);
+    else
+      ModifyKeyHook(RepeatELF, KEY_HOOK_REMOVE, 0);
   
   return 1;
 }
@@ -66,6 +87,7 @@ int OnBcfgConfig (void* Data, BOOK* Book)
     wstrcat(FullName, L"/");
     wstrcat(FullName, Message->BcfgEditName);
     elfload(FullName, (void*)successed_config_path, (void*)successed_config_name, 0);
+    delete(FullName);
     
     return 1;
 }
@@ -87,42 +109,13 @@ void LoadSaveLastState (int a)
         char* buf = new char[stat.st_size+1];
         w_fread(f, buf, stat.st_size);
         w_fclose(f);
-        char* v = new char;
-        v = manifest_GetParam(buf, "[ActiveELFNumber]", 0);
-        switch (v[0]) // C этим надо что-то сделать, хотя работает наверное быстро
-        {
-          case '0':
-          {
-            ActiveELFNumber = 0;
-            
-            break;
-          }
-          case '1':
-          {
-            ActiveELFNumber = 1;
-            
-            break;
-          }
-          case '2':
-          {
-            ActiveELFNumber = 2;
-            
-            break;
-          }
-          case '3':
-          {
-            ActiveELFNumber = 3;
-            
-            break;
-          }
-          case '4':
-          {
-            ActiveELFNumber = 4;
-            
-            break;
-          }
-          default: ActiveELFNumber = -1;
-        }
+        char* aen = new char[1];
+        aen = manifest_GetParam(buf, "ActiveELFNumber", 0);
+        delete(buf);
+        int a = aen[0] - 0x30;
+        delete(aen);
+        if ((a >= 0) && (a <= 4))
+          ActiveELFNumber = a;
       }
     }
   }
@@ -131,7 +124,7 @@ void LoadSaveLastState (int a)
     if((f = w_fopen(path, WA_Read+WA_Write+WA_Create+WA_Truncate, 0x1FF, 0)) >= 0)
     {
       char buf[22];
-      sprintf(buf, "[ActiveELFNumber]: %d\n", ActiveELFNumber);
+      sprintf(buf, "ActiveELFNumber: %d\n", ActiveELFNumber);
       w_fwrite(f, buf, strlen(buf));
       w_fclose(f);
     }
@@ -164,9 +157,8 @@ typedef struct
 
 int ShowAuthorInfo (void *mess ,BOOK* book)
 {
-  //MSG * msg = (MSG*)mess;
-  //MessageBox(EMPTY_TEXTID, Str2ID(_T("E-switch\n") ELF_VERSION _T(" ") LNG_NAME _T("\n\n(c) Black_Roland\nE-mail:\nblack_roland@mail.ru") LNG_ABOUT_TRANSLATOR, 0, TEXTID_ANY_LEN), 0, 1, 5000, msg->book);
-  //MessageBox(EMPTY_TEXTID, TextID_Create(_T("E-switch\n") ELF_VERSION _T(" ") LNG_NAME _T("\n\n(c) Black_Roland\nE-mail:\nblack_roland@mail.ru") LNG_ABOUT_TRANSLATOR, 0, TEXTID_ANY_LEN), 0, 1, 5000, msg->book);
+  MSG * msg = (MSG*)mess;
+  MessageBox(EMPTY_TEXTID, TextID_Create(_T("E-switch\n") ELF_VERSION _T(" ") LNG_NAME _T("\n\n(c) Black_Roland\nE-mail:\nblack_roland@mail.ru") LNG_ABOUT_TRANSLATOR, ENC_UCS2, TEXTID_ANY_LEN), 0, 1, 5000, msg->book);
   
   return 1;
 }
@@ -184,6 +176,7 @@ PAGE_DESC base_page ={"ES_BasePage", 0, ES_PageEvents};
 
 void elf_exit(void)
 {
+  trace_done();
   kill_data(&ELF_BEGIN, (void(*)(void*))mfree_adr());
 }
 
@@ -230,7 +223,7 @@ void DelayedRun (u16 timerID , LPARAM n)
   }
   if (BCFG_Settings_RedrawStandByWhenSwitch) // Перерисовка StandBy
   {
-    DISP_OBJ* RedrawGUI = GUIObject_GetDispObject(SBY_GetStatusIndication(Find_StandbyBook())); // Не оптимально, но в глобальные переменные не заносится
+    DISP_OBJ* RedrawGUI = GUIObject_GetDispObject(SBY_GetStatusIndication(Find_StandbyBook()));
     DispObject_InvalidateRect(RedrawGUI, 0);
   }
 }
@@ -250,26 +243,7 @@ void CloseAndRun (int p, int n) // Функция переключения эльфов
     }
     else
       MessageBox(EMPTY_TEXTID, STR(LNG_INVALID_BOOK_NAME), 0, 1, 5000, 0);
-  if (n !=-1)
     Timer_Set(100, DelayedRun, n);
-  // Переехало
-  /*if (n !=-1) // Запуск следующего эльфа
-  {
-    W_FSTAT stat;
-    
-    if (w_fstat(ELFs[n].path, &stat) == 0) // Если есть файл эльфа
-    {
-      if (elfload(ELFs[n].path, 0, 0, 0) != 0) // Запустить следующий эльф
-        MessageBox(EMPTY_TEXTID, STR(LNG_ELF_START_ERROR), 0, 1, 5000, 0); // Если запуск неудачный
-    }
-    else
-      MessageBox(EMPTY_TEXTID, STR(LNG_ELF_NOT_FOUND), 0, 1, 5000, 0); // Если нет файла эльфа
-  }
-  if (BCFG_Settings_RedrawStandByWhenSwitch) // Перерисовка StandBy
-  {
-    DISP_OBJ* RedrawGUI = GUIObject_GetDispObject(SBY_GetStatusIndication(Find_StandbyBook())); // Не оптимально, но в глобальные переменные не заносится
-    DispObject_InvalidateRect(RedrawGUI, 0);
-  }*/
 }
 
 int Switch (int key, int r1 , int mode, LPARAM lparam, DISP_OBJ* dispobj) // Обработчик клавиши, он же калькулятор эльфов
@@ -331,10 +305,9 @@ int RepeatELF (int key, int r1 , int mode, LPARAM lparam, DISP_OBJ* dispobj)
   {
     if (!isKeylocked() && (BCFG_Settings_OnlyInStandBy ? IsOnStandby() : 1))
     {
-      if (ActiveELFNumber != -1) // Если все эльфы отключены
+      if ((ActiveELFNumber != -1) && (ELFs[ActiveELFNumber].state != 2)) // Если эльф(ы) отключен(ы)
       {
-        if (ELFs[ActiveELFNumber].state != 2)
-          CloseAndRun (-1, ActiveELFNumber);
+        CloseAndRun (-1, ActiveELFNumber);
         
         return -1;
       }
@@ -344,7 +317,53 @@ int RepeatELF (int key, int r1 , int mode, LPARAM lparam, DISP_OBJ* dispobj)
   return 0;
 }
 
-void FirstRun () // Чтение настроек и запуск первого активного действия из списка
+void ExecuteFirstELF () // Запуск первого подходящего эльфа
+{
+    if (ActiveELFNumber == -1)
+      ActiveELFNumber = 0;
+    int i = ActiveELFNumber;
+    bool f = false;
+    
+    do
+    {
+      switch (ELFs[i].state)
+      {
+        case 1: // Эльф
+        {
+          CloseAndRun (-1, i);
+          ActiveELFNumber = i;
+          f = true;
+          
+          break;
+        }
+        case 2: // Пустота
+        {
+          ActiveELFNumber = i;
+          f = true;
+          
+          break;
+        }
+      }
+      if (!f) // Если действие выполнено, то не производим проверок
+      {
+        if (i < 4)
+          i++;
+        else
+          i = 0;
+        if (i == ActiveELFNumber) // Если прошли весь список
+        {
+          ActiveELFNumber = -1;
+          f = true;
+          #ifndef NDEBUG
+            MessageBox(EMPTY_TEXTID, STR(LNG_ALL_ACTS_DISABLED), 0, 1, 5000, 0);
+          #endif
+        }
+      }
+    }
+    while (!f);
+}
+
+void InitVariables ()
 {
   InitConfig();
   // Чтение конфига и запись его в массив
@@ -363,50 +382,15 @@ void FirstRun () // Чтение настроек и запуск первого активного действия из списк
   ELFs[4].state = BCFG_ELFs_ELF5_Action;
   ELFs[4].path  = BCFG_ELFs_ELF5_ELFPath;
   ELFs[4].book  = BCFG_ELFs_ELF5_BookName;
-  // Запуск первого подходящего эльфа
-  if (ActiveELFNumber == -1)
-    ActiveELFNumber = 0;
-  int i = ActiveELFNumber;
-  bool f = false;
-  
-  do
-  {
-    switch (ELFs[i].state)
-    {
-      case 1: // Эльф
-      {
-        CloseAndRun (-1, i);
-        ActiveELFNumber = i;
-        f = true;
-        
-        break;
-      }
-      case 2: // Пустота
-      {
-        ActiveELFNumber = i;
-        f = true;
-        
-        break;
-      }
-    }
-    if (!f) // Если действие выполнено, то не производим проверок
-    {
-      if (i < 4)
-        i++;
-      else
-        i = 0;
-      if (i == ActiveELFNumber)
-      {
-        ActiveELFNumber = -1;
-        f = true;
-        #ifndef NDEBUG
-          MessageBox(EMPTY_TEXTID, STR(LNG_ALL_ACTS_DISABLED), 0, 1, 5000, 0);
-        #endif
-      }
-    }
-  }
-  while (!f);
-  // Повторный запуск
+}
+
+void FirstRun ()
+{
+  InitVariables ();
+  LoadSaveLastState(0);
+  ExecuteFirstELF ();
+  AudioControl_Init();
+  ModifyKeyHook(Switch, KEY_HOOK_ADD, 0);
   if (BCFG_Settings_RepeatActiveELF)
     ModifyKeyHook(RepeatELF, KEY_HOOK_ADD, 0);
 }
@@ -420,11 +404,9 @@ int main ()
     
     return 0;
   }
+  trace_init();
   CreateESBook();
-  LoadSaveLastState(0);
   FirstRun ();
-  AudioControl_Init();
-  ModifyKeyHook(Switch, KEY_HOOK_ADD, 0);
   
   return 0;
 }
