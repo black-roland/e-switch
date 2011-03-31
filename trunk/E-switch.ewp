@@ -1026,12 +1026,12 @@
         <option>
           <name>CCOptimization</name>
           <version>0</version>
-          <state>3</state>
+          <state>1</state>
         </option>
         <option>
           <name>CCAllowList</name>
           <version>1</version>
-          <state>1111111</state>
+          <state>0000000</state>
         </option>
         <option>
           <name>CCObjUseModuleName</name>
@@ -1120,7 +1120,7 @@
         <option>
           <name>CCOptimizationSlave</name>
           <version>0</version>
-          <state>3</state>
+          <state>1</state>
         </option>
         <option>
           <name>CCCodeFunctions</name>
@@ -1132,7 +1132,7 @@
         </option>
         <option>
           <name>PreInclude</name>
-          <state></state>
+          <state>..\deleaker\mem2.h</state>
         </option>
         <option>
           <name>CompilerMisraRules</name>
@@ -1850,12 +1850,12 @@
         <option>
           <name>CCOptimization</name>
           <version>0</version>
-          <state>3</state>
+          <state>1</state>
         </option>
         <option>
           <name>CCAllowList</name>
           <version>1</version>
-          <state>1111111</state>
+          <state>0000000</state>
         </option>
         <option>
           <name>CCObjUseModuleName</name>
@@ -1944,7 +1944,7 @@
         <option>
           <name>CCOptimizationSlave</name>
           <version>0</version>
-          <state>3</state>
+          <state>1</state>
         </option>
         <option>
           <name>CCCodeFunctions</name>
@@ -1956,7 +1956,7 @@
         </option>
         <option>
           <name>PreInclude</name>
-          <state></state>
+          <state>..\deleaker\mem2.h</state>
         </option>
         <option>
           <name>CompilerMisraRules</name>
@@ -2674,12 +2674,12 @@
         <option>
           <name>CCOptimization</name>
           <version>0</version>
-          <state>3</state>
+          <state>1</state>
         </option>
         <option>
           <name>CCAllowList</name>
           <version>1</version>
-          <state>1111111</state>
+          <state>0000000</state>
         </option>
         <option>
           <name>CCObjUseModuleName</name>
@@ -2768,7 +2768,7 @@
         <option>
           <name>CCOptimizationSlave</name>
           <version>0</version>
-          <state>3</state>
+          <state>1</state>
         </option>
         <option>
           <name>CCCodeFunctions</name>
@@ -2780,7 +2780,7 @@
         </option>
         <option>
           <name>PreInclude</name>
-          <state></state>
+          <state>..\deleaker\mem2.h</state>
         </option>
         <option>
           <name>CompilerMisraRules</name>
@@ -3498,12 +3498,12 @@
         <option>
           <name>CCOptimization</name>
           <version>0</version>
-          <state>3</state>
+          <state>1</state>
         </option>
         <option>
           <name>CCAllowList</name>
           <version>1</version>
-          <state>1111111</state>
+          <state>0000000</state>
         </option>
         <option>
           <name>CCObjUseModuleName</name>
@@ -3592,7 +3592,7 @@
         <option>
           <name>CCOptimizationSlave</name>
           <version>0</version>
-          <state>3</state>
+          <state>1</state>
         </option>
         <option>
           <name>CCCodeFunctions</name>
@@ -3604,7 +3604,7 @@
         </option>
         <option>
           <name>PreInclude</name>
-          <state></state>
+          <state>..\deleaker\mem2.h</state>
         </option>
         <option>
           <name>CompilerMisraRules</name>
@@ -4322,12 +4322,12 @@
         <option>
           <name>CCOptimization</name>
           <version>0</version>
-          <state>3</state>
+          <state>1</state>
         </option>
         <option>
           <name>CCAllowList</name>
           <version>1</version>
-          <state>1111111</state>
+          <state>0000000</state>
         </option>
         <option>
           <name>CCObjUseModuleName</name>
@@ -4416,7 +4416,7 @@
         <option>
           <name>CCOptimizationSlave</name>
           <version>0</version>
-          <state>3</state>
+          <state>1</state>
         </option>
         <option>
           <name>CCCodeFunctions</name>
@@ -4428,7 +4428,7 @@
         </option>
         <option>
           <name>PreInclude</name>
-          <state></state>
+          <state>..\deleaker\mem2.h</state>
         </option>
         <option>
           <name>CompilerMisraRules</name>
@@ -5146,12 +5146,12 @@
         <option>
           <name>CCOptimization</name>
           <version>0</version>
-          <state>3</state>
+          <state>1</state>
         </option>
         <option>
           <name>CCAllowList</name>
           <version>1</version>
-          <state>1111111</state>
+          <state>0000000</state>
         </option>
         <option>
           <name>CCObjUseModuleName</name>
@@ -5240,7 +5240,7 @@
         <option>
           <name>CCOptimizationSlave</name>
           <version>0</version>
-          <state>3</state>
+          <state>1</state>
         </option>
         <option>
           <name>CCCodeFunctions</name>
@@ -5252,7 +5252,7 @@
         </option>
         <option>
           <name>PreInclude</name>
-          <state></state>
+          <state>..\deleaker\mem2.h</state>
         </option>
         <option>
           <name>CompilerMisraRules</name>

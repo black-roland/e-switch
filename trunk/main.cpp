@@ -69,7 +69,8 @@ int Reconfig (void*, BOOK* book)
     }
     ExecuteFirstELF ();
   }
-  if (oldBCFG_Settings_RepeatActiveELF != BCFG_Settings_RepeatActiveELF)
+ 
+  if (BCFG_Settings_RepeatActiveELF != oldBCFG_Settings_RepeatActiveELF)
     if (BCFG_Settings_RepeatActiveELF)
       ModifyKeyHook(RepeatELF, KEY_HOOK_ADD, 0);
     else
@@ -183,7 +184,8 @@ void elf_exit(void)
 void onCloseESBook (BOOK* book)
 {
   ModifyKeyHook(Switch, KEY_HOOK_REMOVE, 0);
-  ModifyKeyHook(RepeatELF, KEY_HOOK_REMOVE, 0);
+  if (BCFG_Settings_RepeatActiveELF)
+    ModifyKeyHook(RepeatELF, KEY_HOOK_REMOVE, 0);
   LoadSaveLastState (1);
   if ((BCFG_Settings_ClsActELFWhnEswtchCls) && (ELFs[ActiveELFNumber].state != 2))
       CloseAndRun(ActiveELFNumber, -1);
