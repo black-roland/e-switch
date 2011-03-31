@@ -7,6 +7,7 @@
 // #define LNG_ELFS                  "<Этот текст можно изменить>"
 
 /* ---------- Settings/Настройки ---------- */
+/* --- (max. 31 symbols/макс. 31 символ --- */
 #define LNG_ELFS                  "Elfs"
 #define LNG_ELF1                  "Elf 1"
 #define LNG_ELF2                  "Elf 2"
