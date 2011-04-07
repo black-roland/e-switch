@@ -21,13 +21,17 @@
 #define LNG_ELF_PATH              "Path to elf"
 #define LNG_BOOK_NAME             "Name a book / elf"
 #define LNG_SETTINGS              "Settings"
-#define LNG_SWITCH_KEY            "Shift key"
 #define LNG_ONLY_IN_SB            "Only Standby"
 #define LNG_VIBRATE               "Vibrate when you switch"
 #define LNG_REDRAW_SB             "Redraw StandByBook"
 #define LNG_CLS_A_W_C             "Close current elf when exit"
 #define LNG_REPEAT                "Repeat launching on a key"
+#define LNG_PLAYER                "On player start"
+#define LNG_KEYS                  "Keys"
+#define LNG_FORWARD_KEY           "Next elf"
+#define LNG_BACKWARD_KEY          "Previous elf"
 #define LNG_REPEAT_KEY            "Repeat launching key"
+#define LNG_VIBRA_TIME            "Vibration time (ms)"
 /* ----------------------------------------- */
 
 /* ----------- Messages/Сообщения ---------- */
@@ -40,8 +44,8 @@
 /* ----------------------------------------- */
 
 /* -------------- Other/Прочее ------------- */
-#define LNG_NAME                  L"EN" // Language name/Краткое название языка
+#define LNG_NAME                  L"EN" // Short language name/Краткое название языка
 //#define LNG_ABOUT_TRANSLATOR    L"\nTranslator: <Your name or nickname>"
 //#define LNG_ABOUT_TRANSLATOR    L"\nПереводчик: <Ваше имя или никнейм>"
-#define LNG_ABOUT_TRANSLATOR      L"\nTranslator: Vov4ик"
+#define LNG_ABOUT_TRANSLATOR      L"\nTranslator: Vov4ик, Black_Roland"
 /* ----------------------------------------- */

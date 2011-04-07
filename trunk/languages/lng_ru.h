@@ -21,13 +21,17 @@
 #define LNG_ELF_PATH              "Путь к эльфу"
 #define LNG_BOOK_NAME             "Имя книги эльфа"
 #define LNG_SETTINGS              "Настройки"
-#define LNG_SWITCH_KEY            "Клавиша переключения"
 #define LNG_ONLY_IN_SB            "Только в режиме ожидания"
 #define LNG_VIBRATE               "Вибрировать при переключении"
 #define LNG_REDRAW_SB             "Перерисовывать StandByBook"
 #define LNG_CLS_A_W_C             "При выходе закр. текущий эльф"
 #define LNG_REPEAT                "Повторный запуск по клавише"
-#define LNG_REPEAT_KEY            "Клавиша повторного запуска"
+#define LNG_PLAYER                "При запуске проигрывателя"
+#define LNG_KEYS                  "Клавиши"
+#define LNG_FORWARD_KEY           "След. эльф"
+#define LNG_BACKWARD_KEY          "Пред. эльф"
+#define LNG_REPEAT_KEY            "Повторный запуск"
+#define LNG_VIBRA_TIME            "Время вибрации (мс)"
 /* ----------------------------------------- */
 
 /* ----------- Messages/Сообщения ---------- */
@@ -40,7 +44,7 @@
 /* ----------------------------------------- */
 
 /* -------------- Other/Прочее ------------- */
-#define LNG_NAME                  L"RU" // Language name/Краткое название языка
+#define LNG_NAME                  L"RU" // Short language name/Краткое название языка
 //#define LNG_ABOUT_TRANSLATOR    L"\nTranslator: <Your name or nickname>"
 //#define LNG_ABOUT_TRANSLATOR    L"\nПереводчик: <Ваше имя или никнейм>"
 #define LNG_ABOUT_TRANSLATOR      L""

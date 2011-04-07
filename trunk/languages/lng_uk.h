@@ -27,7 +27,12 @@
 #define LNG_REDRAW_SB             "Перемалювати StandByBook"
 #define LNG_CLS_A_W_C             "При виході закр. поточний ельф" // Google Translate
 #define LNG_REPEAT                "Повторний запуск по клавіші" // Google Translate
+#define LNG_PLAYER                "При запуску програвача" // Google Translate
+#define LNG_KEYS                  "Клавіші" // Google Translate
+#define LNG_FORWARD_KEY           "Наступний ельф" // Google Translate
+#define LNG_BACKWARD_KEY          "Попередній ельф" // Google Translate
 #define LNG_REPEAT_KEY            "Клавіша повторного запуску" // Google Translate
+#define LNG_VIBRA_TIME            "Час вібрації (мс)" // Google Translate
 /* ----------------------------------------- */
 
 /* ----------- Messages/Сообщения ---------- */
