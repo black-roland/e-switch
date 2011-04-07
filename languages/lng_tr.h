@@ -21,13 +21,18 @@
 #define LNG_ELF_PATH              "Elfin Yolu"
 #define LNG_BOOK_NAME             "Book Adi"
 #define LNG_SETTINGS              "Ayarlar"
-#define LNG_SWITCH_KEY            "Degistirme Tusu"
 #define LNG_ONLY_IN_SB            "Sadece Beklemede"
 #define LNG_VIBRATE               "Degisirken Telefonu Titret"
 #define LNG_REDRAW_SB             "StandByBook'u Yenile"
 #define LNG_CLS_A_W_C             "Zaman kapanis elf" // Google Translate
 #define LNG_REPEAT                "Bir tus uzerindeki Restarting" // Google Translate
 #define LNG_REPEAT_KEY            "Anahtar calcstcrmak icin" // Google Translate
+#define LNG_PLAYER                "Oyuncu baslangic gunu" // Google Translate
+#define LNG_KEYS                  "Tuslari" // Google Translate
+#define LNG_FORWARD_KEY           "Sonraki elf" // Google Translate
+#define LNG_BACKWARD_KEY          "Onceki elf" // Google Translate
+#define LNG_REPEAT_KEY            "Anahtar calcstcrmak icin" // Google Translate
+#define LNG_VIBRA_TIME            "Titresim suresi (ms)" // Google Translate
 /* ----------------------------------------- */
 
 /* ----------- Messages/Сообщения ---------- */
@@ -40,7 +45,7 @@
 /* ----------------------------------------- */
 
 /* -------------- Other/Прочее ------------- */
-#define LNG_NAME                  L"TR" // Language name/Краткое название языка
+#define LNG_NAME                  L"TR" // Short language name/Краткое название языка
 //#define LNG_ABOUT_TRANSLATOR    L"\nTranslator: <Your name or nickname>"
 //#define LNG_ABOUT_TRANSLATOR    L"\nПереводчик: <Ваше имя или никнейм>"
 #define LNG_ABOUT_TRANSLATOR      L"\nCeviri: Mehmet Akif"

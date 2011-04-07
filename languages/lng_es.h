@@ -27,7 +27,12 @@
 #define LNG_REDRAW_SB             "Redibujar StandByBook"
 #define LNG_CLS_A_W_C             "Al final los elf" // Google Translate
 #define LNG_REPEAT                "El reinicio de una tecla" // Google Translate
+#define LNG_PLAYER                "En el arranque jugador" // Google Translate
+#define LNG_KEYS                  "Claves" // Google Translate
+#define LNG_FORWARD_KEY           "Siguiente elfo" // Google Translate
+#define LNG_BACKWARD_KEY          "Elfo anterior" // Google Translate
 #define LNG_REPEAT_KEY            "La clave para correr" // Google Translate
+#define LNG_VIBRA_TIME            "Tiempo de vibracion (ms)" // Google Translate
 /* ----------------------------------------- */
 
 /* ----------- Messages/Сообщения ---------- */

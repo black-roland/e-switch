@@ -6,7 +6,7 @@
 
 #define ELF_BCFG_CONFIG_EVENT 994
 
-#define ELF_VERSION L"1.2"
+#define ELF_VERSION L"1.3"
 
 /* ----------- Прототипы функций ----------- */
 int Switch (int, int, int, LPARAM, DISP_OBJ*);
@@ -47,28 +47,34 @@ int IsOnStandby ()
 
 int Reconfig (void*, BOOK* book)
 {
-  ELF oldActiveELFNumber = ELFs[ActiveELFNumber];
+  ELF oldActiveELFNumber;
+  if (ActiveELFNumber != -1)
+    oldActiveELFNumber = ELFs[ActiveELFNumber];
   int oldBCFG_Settings_RepeatActiveELF = BCFG_Settings_RepeatActiveELF;
   InitVariables ();
-  
-  // Убийство старого эльфа если реконфиг и они отличаются
-  if ((oldActiveELFNumber.state != ELFs[ActiveELFNumber].state) ||
-      (oldActiveELFNumber.path != ELFs[ActiveELFNumber].path) ||
-        (oldActiveELFNumber.book != ELFs[ActiveELFNumber].book))
+  if (ActiveELFNumber != -1)
   {
-    if ((ActiveELFNumber != -1) && (oldActiveELFNumber.state != 2))
+    // Убийство старого эльфа если реконфиг и они отличаются
+    if ((oldActiveELFNumber.state != ELFs[ActiveELFNumber].state) ||
+        (oldActiveELFNumber.path != ELFs[ActiveELFNumber].path) ||
+          (oldActiveELFNumber.book != ELFs[ActiveELFNumber].book))
     {
-      if (strcmp(oldActiveELFNumber.book, "E-switch") != 0) // Защита от суицида
+      if ((ActiveELFNumber != -1) && (oldActiveELFNumber.state != 2))
       {
-        BOOK* bk = FindBookEx (BookToFind, (int*)oldActiveELFNumber.book);
-        int bkid = BookObj_GetBookID (bk);
-        
-        if (bkid != -1) // Если книга найдена
-          UI_Event_toBookID(ELF_TERMINATE_EVENT, bkid); // Закрыть предыдущий эльф
+        if (strcmp(oldActiveELFNumber.book, "E-switch") != 0) // Защита от суицида
+        {
+          BOOK* bk = FindBookEx (BookToFind, (int*)oldActiveELFNumber.book);
+          int bkid = BookObj_GetBookID (bk);
+          
+          if (bkid != -1) // Если книга найдена
+            UI_Event_toBookID(ELF_TERMINATE_EVENT, bkid); // Закрыть предыдущий эльф
+        }
       }
+      ExecuteFirstELF ();
     }
-    ExecuteFirstELF ();
   }
+  else
+    ExecuteFirstELF ();
  
   if (BCFG_Settings_RepeatActiveELF != oldBCFG_Settings_RepeatActiveELF)
     if (BCFG_Settings_RepeatActiveELF)
@@ -132,6 +138,32 @@ void LoadSaveLastState (int a)
   }
 }
 
+int OnPlayer (void*, BOOK* book)
+{
+  if (BCFG_Settings_OnPlayerStart != 0)
+  {
+    switch (ELFs[(BCFG_Settings_OnPlayerStart - 1)].state)
+    {
+      case 1: // Эльф
+      {
+        CloseAndRun ((ELFs[ActiveELFNumber].state != 2 ? ActiveELFNumber : -1), (BCFG_Settings_OnPlayerStart - 1)); // Если не пустота, то закрыть
+        ActiveELFNumber = (BCFG_Settings_OnPlayerStart - 1);
+        
+        break;
+      }
+      case 2: // Пустота
+      {
+        CloseAndRun ((ELFs[ActiveELFNumber].state != 2 ? ActiveELFNumber : -1), -1); // Если не пустота, то закрыть
+        ActiveELFNumber = (BCFG_Settings_OnPlayerStart - 1);
+        
+        break;
+      }
+    }
+  }
+  
+  return 1;
+}
+
 int OnPhonePowerDown (void*, BOOK* book)
 {
   LoadSaveLastState (1);
@@ -170,6 +202,7 @@ const PAGE_MSG ES_PageEvents[]@ "DYN_PAGE" ={
   ELF_RECONFIG_EVENT,                         Reconfig,
   ELF_BCFG_CONFIG_EVENT,                      OnBcfgConfig,
   UI_CONTROLLED_SHUTDOWN_REQUESTED_EVENT_TAG, OnPhonePowerDown,
+  UI_MEDIAPLAYER_CREATED_EVENT_TAG,           OnPlayer,
   NIL_EVENT_TAG,                              0
 };
 
@@ -250,8 +283,8 @@ void CloseAndRun (int p, int n) // Функция переключения эльфов
 
 int Switch (int key, int r1 , int mode, LPARAM lparam, DISP_OBJ* dispobj) // Обработчик клавиши, он же калькулятор эльфов
 {
-  if ((key == BCFG_Settings_SwitchingKey_KeyCode) &&
-      (mode == BCFG_Settings_SwitchingKey_KeyMode))
+  if (((key == BCFG_Settings_Keys_ShiftForward_KeyCode) && (mode == BCFG_Settings_Keys_ShiftForward_KeyMode)) ||
+      ((key == BCFG_Settings_Keys_ShiftBackward_KeyCode) && (mode == BCFG_Settings_Keys_ShiftBackward_KeyMode)))
     if (!isKeylocked() && (BCFG_Settings_OnlyInStandBy ? IsOnStandby() : 1))
     {
       if (ActiveELFNumber != -1) // Если все эльфы отключены
@@ -261,10 +294,16 @@ int Switch (int key, int r1 , int mode, LPARAM lparam, DISP_OBJ* dispobj) // Обр
         
         do
         {
-          if (i < 4)
-            i++;
-          else
-            i = 0;
+          if ((key == BCFG_Settings_Keys_ShiftForward_KeyCode) && (mode == BCFG_Settings_Keys_ShiftForward_KeyMode)) // Если переключение вперед 
+            if (i < 4)
+              i++;
+            else
+              i = 0;
+          else // Иначе назад
+            if (i > 0)
+              i--;
+            else
+              i = 4;
           switch (ELFs[i].state)
           {
             case 1: // Эльф
@@ -272,7 +311,7 @@ int Switch (int key, int r1 , int mode, LPARAM lparam, DISP_OBJ* dispobj) // Обр
               CloseAndRun ((ELFs[ActiveELFNumber].state != 2 ? ActiveELFNumber : -1), i); // Если не пустота, то закрыть
               ActiveELFNumber = i;
               if (BCFG_Settings_VibrateWhenSwitch)
-                AudioControl_Vibrate(*GetAudioControlPtr(), 500, 0, 500);
+                AudioControl_Vibrate(*GetAudioControlPtr(), BCFG_Settings_VibrationTime, 0, BCFG_Settings_VibrationTime);
               f = true;
               
               break;
@@ -282,7 +321,7 @@ int Switch (int key, int r1 , int mode, LPARAM lparam, DISP_OBJ* dispobj) // Обр
               CloseAndRun ((ELFs[ActiveELFNumber].state != 2 ? ActiveELFNumber : -1), -1); // Если не пустота, то закрыть
               ActiveELFNumber = i;
               if (BCFG_Settings_VibrateWhenSwitch)
-                AudioControl_Vibrate(*GetAudioControlPtr(), 500, 0, 500);
+                AudioControl_Vibrate(*GetAudioControlPtr(), BCFG_Settings_VibrationTime, 0, BCFG_Settings_VibrationTime);
               f = true;
               
               break;
@@ -302,8 +341,8 @@ int Switch (int key, int r1 , int mode, LPARAM lparam, DISP_OBJ* dispobj) // Обр
 
 int RepeatELF (int key, int r1 , int mode, LPARAM lparam, DISP_OBJ* dispobj)
 {
-  if ((key == BCFG_Settings_RepeatActiveELF_KeyCode) &&
-      (mode == BCFG_Settings_RepeatActiveELF_KeyMode))
+  if ((key == BCFG_Settings_Keys_RepeatActiveELF_KeyCode) &&
+      (mode == BCFG_Settings_Keys_RepeatActiveELF_KeyMode))
   {
     if (!isKeylocked() && (BCFG_Settings_OnlyInStandBy ? IsOnStandby() : 1))
     {

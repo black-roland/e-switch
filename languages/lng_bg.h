@@ -27,7 +27,12 @@
 #define LNG_REDRAW_SB             "Опресняване на StandByBook"
 #define LNG_CLS_A_W_C             "Затвори текущия елф при изход"
 #define LNG_REPEAT                "Повторно пускане с клавиш"
+#define LNG_PLAYER                "При стартиране на играча" // Google Translate
+#define LNG_KEYS                  "Ключове" // Google Translate
+#define LNG_FORWARD_KEY           "Следваща елф" // Google Translate
+#define LNG_BACKWARD_KEY          "Предишна елф" // Google Translate
 #define LNG_REPEAT_KEY            "Клавиш за повторно пускане"
+#define LNG_VIBRA_TIME            "Време на вибрациите (мс)" // Google Translate
 /* ----------------------------------------- */
 
 /* ----------- Messages/Сообщения ---------- */
