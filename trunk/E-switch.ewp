@@ -1026,12 +1026,12 @@
         <option>
           <name>CCOptimization</name>
           <version>0</version>
-          <state>1</state>
+          <state>3</state>
         </option>
         <option>
           <name>CCAllowList</name>
           <version>1</version>
-          <state>0000000</state>
+          <state>1111111</state>
         </option>
         <option>
           <name>CCObjUseModuleName</name>
@@ -1120,7 +1120,7 @@
         <option>
           <name>CCOptimizationSlave</name>
           <version>0</version>
-          <state>1</state>
+          <state>3</state>
         </option>
         <option>
           <name>CCCodeFunctions</name>
@@ -1850,12 +1850,12 @@
         <option>
           <name>CCOptimization</name>
           <version>0</version>
-          <state>1</state>
+          <state>3</state>
         </option>
         <option>
           <name>CCAllowList</name>
           <version>1</version>
-          <state>0000000</state>
+          <state>1111111</state>
         </option>
         <option>
           <name>CCObjUseModuleName</name>
@@ -1944,7 +1944,7 @@
         <option>
           <name>CCOptimizationSlave</name>
           <version>0</version>
-          <state>1</state>
+          <state>3</state>
         </option>
         <option>
           <name>CCCodeFunctions</name>
@@ -2674,12 +2674,12 @@
         <option>
           <name>CCOptimization</name>
           <version>0</version>
-          <state>1</state>
+          <state>3</state>
         </option>
         <option>
           <name>CCAllowList</name>
           <version>1</version>
-          <state>0000000</state>
+          <state>1111111</state>
         </option>
         <option>
           <name>CCObjUseModuleName</name>
@@ -2768,7 +2768,7 @@
         <option>
           <name>CCOptimizationSlave</name>
           <version>0</version>
-          <state>1</state>
+          <state>3</state>
         </option>
         <option>
           <name>CCCodeFunctions</name>
@@ -3498,12 +3498,12 @@
         <option>
           <name>CCOptimization</name>
           <version>0</version>
-          <state>1</state>
+          <state>3</state>
         </option>
         <option>
           <name>CCAllowList</name>
           <version>1</version>
-          <state>0000000</state>
+          <state>1111111</state>
         </option>
         <option>
           <name>CCObjUseModuleName</name>
@@ -3592,7 +3592,7 @@
         <option>
           <name>CCOptimizationSlave</name>
           <version>0</version>
-          <state>1</state>
+          <state>3</state>
         </option>
         <option>
           <name>CCCodeFunctions</name>
@@ -4322,12 +4322,12 @@
         <option>
           <name>CCOptimization</name>
           <version>0</version>
-          <state>1</state>
+          <state>3</state>
         </option>
         <option>
           <name>CCAllowList</name>
           <version>1</version>
-          <state>0000000</state>
+          <state>1111111</state>
         </option>
         <option>
           <name>CCObjUseModuleName</name>
@@ -4416,7 +4416,7 @@
         <option>
           <name>CCOptimizationSlave</name>
           <version>0</version>
-          <state>1</state>
+          <state>3</state>
         </option>
         <option>
           <name>CCCodeFunctions</name>
@@ -5146,12 +5146,12 @@
         <option>
           <name>CCOptimization</name>
           <version>0</version>
-          <state>1</state>
+          <state>3</state>
         </option>
         <option>
           <name>CCAllowList</name>
           <version>1</version>
-          <state>0000000</state>
+          <state>1111111</state>
         </option>
         <option>
           <name>CCObjUseModuleName</name>
@@ -5240,7 +5240,7 @@
         <option>
           <name>CCOptimizationSlave</name>
           <version>0</version>
-          <state>1</state>
+          <state>3</state>
         </option>
         <option>
           <name>CCCodeFunctions</name>

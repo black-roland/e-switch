@@ -1,29 +1,36 @@
 #include "..\include\Lib_Clara.h"
 #include "..\include\dir.h"
+#include "..\include\cfg_items.h"
 #include "conf_loader.h"
 #include "config_data.h"
 #include "languages.h"
 
 #define ELF_BCFG_CONFIG_EVENT 994
 
-#define ELF_VERSION L"1.3"
+#define ELF_VERSION "2.0"
 
 /* ----------- Прототипы функций ----------- */
-int Switch (int, int, int, LPARAM, DISP_OBJ*);
-void FirstRun ();
-void CloseAndRun (int, int);
+int KeySwitch (int, int, int, LPARAM, DISP_OBJ*);
+void CloseDesktop (int);
 int RepeatELF (int, int, int, LPARAM, DISP_OBJ*);
-int BookToFind (BOOK*, int*);
-void ExecuteFirstELF ();
+bool CheckDesktop (int);
+void RunFirstDesktop ();
 void InitVariables ();
 /* ----------------------------------------- */
 
 /* ------ Глобальные переменные и пр. ------ */
 struct ELF
 {
-  int state;
-  const wchar_t* path;
-  const char* book;
+  int Showing;
+  const wchar_t* Path;
+  const char* Book;
+};
+
+struct DESKTOP
+{
+  int Showing;
+  ELF ELFs[5];
+  const wchar_t* Wallpaper;
 };
 
 typedef struct
@@ -33,11 +40,11 @@ typedef struct
     wchar_t* BcfgEditName;
 }MSG_BCFG;
 
-ELF ELFs[5];
-int ActiveELFNumber = -1;
+DESKTOP Desktops[5];
+int ActiveDesktop = -1;
 /* ----------------------------------------- */
 
-int IsOnStandby ()
+int IsOnStandby () // Проверка StandBy
 {
     if (Display_GetTopBook(0) == Find_StandbyBook())
       return 1;
@@ -45,47 +52,31 @@ int IsOnStandby ()
     return 0;
 }
 
-int Reconfig (void*, BOOK* book)
+int Reconfig (void* mess, BOOK* book) // При реконфиге
 {
-  ELF oldActiveELFNumber;
-  if (ActiveELFNumber != -1)
-    oldActiveELFNumber = ELFs[ActiveELFNumber];
-  int oldBCFG_Settings_RepeatActiveELF = BCFG_Settings_RepeatActiveELF;
-  InitVariables ();
-  if (ActiveELFNumber != -1)
-  {
-    // Убийство старого эльфа если реконфиг и они отличаются
-    if ((oldActiveELFNumber.state != ELFs[ActiveELFNumber].state) ||
-        (oldActiveELFNumber.path != ELFs[ActiveELFNumber].path) ||
-          (oldActiveELFNumber.book != ELFs[ActiveELFNumber].book))
-    {
-      if ((ActiveELFNumber != -1) && (oldActiveELFNumber.state != 2))
-      {
-        if (strcmp(oldActiveELFNumber.book, "E-switch") != 0) // Защита от суицида
-        {
-          BOOK* bk = FindBookEx (BookToFind, (int*)oldActiveELFNumber.book);
-          int bkid = BookObj_GetBookID (bk);
-          
-          if (bkid != -1) // Если книга найдена
-            UI_Event_toBookID(ELF_TERMINATE_EVENT, bkid); // Закрыть предыдущий эльф
-        }
-      }
-      ExecuteFirstELF ();
-    }
-  }
-  else
-    ExecuteFirstELF ();
- 
-  if (BCFG_Settings_RepeatActiveELF != oldBCFG_Settings_RepeatActiveELF)
-    if (BCFG_Settings_RepeatActiveELF)
-      ModifyKeyHook(RepeatELF, KEY_HOOK_ADD, 0);
-    else
-      ModifyKeyHook(RepeatELF, KEY_HOOK_REMOVE, 0);
+  RECONFIG_EVENT_DATA *reconf = (RECONFIG_EVENT_DATA *)mess;
+  int result = 0;
   
-  return 1;
+  if (wstrcmpi (reconf->path, successed_config_path) == 0 &&
+      wstrcmpi (reconf->name, successed_config_name) == 0)
+  {
+    int oldBCFG_Settings_RepeatActiveELF = BCFG_Settings_RepeatActiveELF;
+    
+    CloseDesktop (ActiveDesktop);
+    InitVariables ();
+    RunFirstDesktop ();
+    if (BCFG_Settings_RepeatActiveELF != oldBCFG_Settings_RepeatActiveELF)
+      if (BCFG_Settings_RepeatActiveELF)
+        ModifyKeyHook(RepeatELF, KEY_HOOK_ADD, 0);
+      else
+        ModifyKeyHook(RepeatELF, KEY_HOOK_REMOVE, 0);
+    result = 1;
+  }
+  
+  return result;
 }
 
-int OnBcfgConfig (void* Data, BOOK* Book)
+int OnBcfgConfig (void* Data, BOOK* Book) // Поддержка мода BookManager
 {
     MSG_BCFG* Message = (MSG_BCFG*)Data;
     
@@ -99,78 +90,75 @@ int OnBcfgConfig (void* Data, BOOK* Book)
     return 1;
 }
 
-void LoadSaveLastState (int a)
+void LoadLastState () // Загрузка состояния
 {
   int f;
   wchar_t path[201];
   wstrcpy(path, GetDir(DIR_INI|MEM_INTERNAL));
   wstrcat(path, L"/E-Switch.ini");
   
-  if (a == 0) // Чтение состояния
+  W_FSTAT stat;
+  if (w_fstat(path, &stat) == 0)
   {
-    W_FSTAT stat;
-    if(w_fstat(path, &stat) == 0)
+    if ((f = w_fopen(path, WA_Read, 0x1FF, 0)) >= 0)
     {
-      if((f = w_fopen(path, WA_Read, 0x1FF, 0)) >= 0)
-      {
-        char* buf = new char[stat.st_size+1];
-        w_fread(f, buf, stat.st_size);
-        w_fclose(f);
-        char* aen = new char[1];
-        aen = manifest_GetParam(buf, "ActiveELFNumber", 0);
-        delete(buf);
-        int a = aen[0] - 0x30;
-        delete(aen);
-        if ((a >= 0) && (a <= 4))
-          ActiveELFNumber = a;
-      }
-    }
-  }
-  else // Запись состояния
-  {
-    if((f = w_fopen(path, WA_Read+WA_Write+WA_Create+WA_Truncate, 0x1FF, 0)) >= 0)
-    {
-      char buf[22];
-      sprintf(buf, "ActiveELFNumber: %d\n", ActiveELFNumber);
-      w_fwrite(f, buf, strlen(buf));
+      char* buf = new char[stat.st_size+1];
+      w_fread(f, buf, stat.st_size);
       w_fclose(f);
+      char* adstr = new char[1];
+      adstr = manifest_GetParam(buf, "[ActiveDesktop]", 0);
+      int adint = adstr[0] - 0x30;
+      delete(buf);
+      delete(adstr);
+      if ((adint >= 0) && (adint <= 4))
+        ActiveDesktop = adint;
     }
   }
 }
 
-int OnPlayer (void*, BOOK* book)
+void SaveLastState () // Сохранение состояния
+{
+  int f;
+  wchar_t path[201];
+  wstrcpy(path, GetDir(DIR_INI|MEM_INTERNAL));
+  wstrcat(path, L"/E-Switch.ini");
+  
+  if((f = w_fopen(path, WA_Read+WA_Write+WA_Create+WA_Truncate, 0x1FF, 0)) >= 0)
+  {
+    char buf[22];
+    sprintf(buf, "[ActiveDesktop]: %d\n", ActiveDesktop);
+    w_fwrite(f, buf, strlen(buf));
+    w_fclose(f);
+  }
+}
+
+int OnPlayer (void*, BOOK* book) // При запуске проигрывателя
 {
   if (BCFG_Settings_OnPlayerStart != 0)
   {
-    switch (ELFs[(BCFG_Settings_OnPlayerStart - 1)].state)
-    {
-      case 1: // Эльф
-      {
-        CloseAndRun ((ELFs[ActiveELFNumber].state != 2 ? ActiveELFNumber : -1), (BCFG_Settings_OnPlayerStart - 1)); // Если не пустота, то закрыть
-        ActiveELFNumber = (BCFG_Settings_OnPlayerStart - 1);
-        
-        break;
-      }
-      case 2: // Пустота
-      {
-        CloseAndRun ((ELFs[ActiveELFNumber].state != 2 ? ActiveELFNumber : -1), -1); // Если не пустота, то закрыть
-        ActiveELFNumber = (BCFG_Settings_OnPlayerStart - 1);
-        
-        break;
-      }
-    }
+     CheckDesktop (BCFG_Settings_OnPlayerStart - 1);
   }
   
   return 1;
 }
 
-int OnPhonePowerDown (void*, BOOK* book)
+int OnPhonePowerDown (void*, BOOK* book) // При выключении телефона
 {
-  LoadSaveLastState (1);
+  SaveLastState ();
   int book_id = BookObj_GetBookID(book);
   UI_CONTROLLED_SHUTDOWN_RESPONSE(book_id);
   
   return 1;
+}
+
+bool FileExist (const wchar_t* fullpath) // Проверка существования указанного файла
+{
+  W_FSTAT stat;
+  
+  if (w_fstat(fullpath, &stat) == 0)
+    return true;
+  
+  return false;
 }
 
 /* ------ Поддержка BookManager и пр. ------ */
@@ -191,7 +179,7 @@ typedef struct
 int ShowAuthorInfo (void *mess ,BOOK* book)
 {
   MSG * msg = (MSG*)mess;
-  MessageBox(EMPTY_TEXTID, TextID_Create(_T("E-switch\n") ELF_VERSION _T(" ") LNG_NAME _T("\n\n(c) Black_Roland\nE-mail:\nblack_roland@mail.ru") LNG_ABOUT_TRANSLATOR, ENC_UCS2, TEXTID_ANY_LEN), 0, 1, 5000, msg->book);
+  MessageBox(EMPTY_TEXTID, TextID_Create("E-switch\n" ELF_VERSION " " LNG_NAME "\n\n(c) Black_Roland\nE-mail:\nblack_roland@mail.ru", ENC_LAT1, TEXTID_ANY_LEN), NOIMAGE, 1, 5000, msg->book);
   
   return 1;
 }
@@ -216,12 +204,12 @@ void elf_exit(void)
 
 void onCloseESBook (BOOK* book)
 {
-  ModifyKeyHook(Switch, KEY_HOOK_REMOVE, 0);
+  ModifyKeyHook(KeySwitch, KEY_HOOK_REMOVE, 0);
   if (BCFG_Settings_RepeatActiveELF)
     ModifyKeyHook(RepeatELF, KEY_HOOK_REMOVE, 0);
-  LoadSaveLastState (1);
-  if ((BCFG_Settings_ClsActELFWhnEswtchCls) && (ELFs[ActiveELFNumber].state != 2))
-      CloseAndRun(ActiveELFNumber, -1);
+  SaveLastState ();
+  if (BCFG_Settings_ClsActELFWhnEswtchCls)
+      CloseDesktop(ActiveDesktop);
   SUBPROC (elf_exit);
 }
 
@@ -230,9 +218,40 @@ BOOK* CreateESBook ()
   ESBook = new BOOK;
   CreateBook(ESBook, onCloseESBook, &base_page, "E-switch", -1, 0);
   
-  return(ESBook);
+  return (ESBook);
 }
 /* ----------------------------------------- */
+
+int SetWallpaper (const wchar_t* fullpath) // Установка указанных обоев // Я бы сочинил про эту многострадальную функцию стихотворение, но не умею
+{
+  if (!FileExist(fullpath))
+  {
+    wchar_t path[201];
+    wchar_t fname[201];
+    int len = wstrlen (fullpath);
+    int pos = len;
+    int i, j = 0;
+    
+    while ((fullpath[pos] != '/') && (pos >= 0))
+      pos--;
+    for (i = 0; i <= pos-1; i++)
+      path[i] = fullpath[i];
+    path[pos] = '\0';
+    for (i = pos+1; i <= len; i++)
+    {
+      fname[j] = fullpath[i];
+      j++;
+    }
+    fname[j+1] = '\0';
+    
+    if ((StandbyBackground_SetImage (3, 0, 0, path, fname, 0)) != 0)
+      return 2;
+  }
+  else
+    return 1;
+  
+  return 0;
+}
 
 int BookToFind (BOOK* book, int* param)
 {
@@ -242,196 +261,250 @@ int BookToFind (BOOK* book, int* param)
   return 0;
 }
 
-void DelayedRun (u16 timerID , LPARAM n)
+int CloseELF (ELF ELFObj) // Закрытие эльфа
 {
-  if (n !=-1) // Запуск следующего эльфа
+  if (strcmp(ELFObj.Book, "E-switch")) // Защита от суицида
   {
-    W_FSTAT stat;
+    BOOK* bk = FindBookEx (BookToFind, (int*)ELFObj.Book);
+    int bkid = BookObj_GetBookID (bk);
     
-    if (w_fstat(ELFs[n].path, &stat) == 0) // Если есть файл эльфа
-    {
-      if (elfload(ELFs[n].path, 0, 0, 0) != 0) // Запустить следующий эльф
-        MessageBox(EMPTY_TEXTID, STR(LNG_ELF_START_ERROR), 0, 1, 5000, 0); // Если запуск неудачный
-    }
+    if (bkid != -1) // Если книга найдена
+      UI_Event_toBookID(ELF_TERMINATE_EVENT, bkid); // Закрыть эльф
     else
-      MessageBox(EMPTY_TEXTID, STR(LNG_ELF_NOT_FOUND), 0, 1, 5000, 0); // Если нет файла эльфа
+      return 2;
   }
-  if (BCFG_Settings_RedrawStandByWhenSwitch) // Перерисовка StandBy
+  else
+    return 1;
+  
+  return 0;
+}
+
+int RunELF (ELF ELFObj) // Запуск эльфа
+{
+  if (FileExist(ELFObj.Path)) // Если есть файл эльфа
   {
-    DISP_OBJ* RedrawGUI = GUIObject_GetDispObject(SBY_GetStatusIndication(Find_StandbyBook()));
-    DispObject_InvalidateRect(RedrawGUI, 0);
+    if (elfload(ELFObj.Path, 0, 0, 0) != 0) // Запустить эльф
+      return 2; // Если запуск неудачный
   }
+  else
+    return 1; // Если нет файла эльфа
+
+  return 0;
 }
 
-void CloseAndRun (int p, int n) // Функция переключения эльфов
+void CloseDesktop (int n) // Закрытие рабочего стола
 {
-  if (p !=-1) // Закрытие предыдущего эльфа
-    if (strcmp(ELFs[p].book, "E-switch")) // Защита от суицида
+  int i;
+  bool e = false;
+  
+  for (i = 0; i < 5; i++)
+  {
+    if (Desktops[n].ELFs[i].Showing == 1)
+      if (CloseELF(Desktops[n].ELFs[i]) != 0)
+        e = true;
+  }
+  if (e == true) // Если найдены ошибки
+    MessageBox(EMPTY_TEXTID, STR(LNG_DESKTOP_CLOSE_ERROR), NOIMAGE, 1, 5000, ESBook);
+}
+
+void RunDesktop (int n) // Запуск рабочего стола
+{
+  int i;
+  bool e = false;
+  
+  for (i = 0; i < 5; i++)
+  {
+    if (Desktops[n].ELFs[i].Showing == 1)
+      if (RunELF(Desktops[n].ELFs[i]) != 0)
+        e = true;
+  }
+  // Перерисовка StandBy
+  DISP_OBJ* RedrawGUI = GUIObject_GetDispObject(SBY_GetStatusIndication(Find_StandbyBook()));
+  DispObject_InvalidateRect(RedrawGUI, 0);
+  if (e == true) // Если найдены ошибки
+    MessageBox(EMPTY_TEXTID, STR(LNG_DESKTOP_RUN_ERROR), NOIMAGE, 1, 5000, ESBook);
+}
+
+void OnTimerRunDesktop (u16 timerID, LPARAM n) // Отложенный запуск рабочего стола
+{
+  RunDesktop(n);
+}
+
+bool CheckDesktop (int i) // Выполнение проверок и запуска/закрыия рабочих столов
+{
+  if (Desktops[i].Showing == 1)
+  {
+    CloseDesktop (ActiveDesktop); // Закрытие рабочего стола
+    Timer_Set(200, OnTimerRunDesktop, i); // Отложенный запуск рабочего стола
+    ActiveDesktop = i;
+    if (BCFG_21_WallWhenSwitch == 1) // Установка обоев
+      if ((SetWallpaper (Desktops[i].Wallpaper)) != 0)
+        MessageBox(EMPTY_TEXTID, STR(LNG_WALLPAPER_SET_ERROR), NOIMAGE, 1, 5000, ESBook);
+
+    return true;
+  }
+  
+  return false;
+}
+
+void AfterDesktopSwitch () // Функция выполняемая после переключения столов по клавише
+{
+  if (BCFG_Settings_VibrateWhenSwitch)
+    AudioControl_Vibrate(*GetAudioControlPtr(), BCFG_Settings_VibrationTime, 0, BCFG_Settings_VibrationTime);
+}
+
+void NextDesktop ()// Переключить на следующий рабочий стол
+{
+  int i = ActiveDesktop;
+  
+  if (ActiveDesktop != -1)
+  {
+    do
     {
-      BOOK* bk = FindBookEx (BookToFind, (int*)ELFs[p].book);
-      int bkid = BookObj_GetBookID (bk);
-      
-      if (bkid != -1) // Если книга не найдена
-        UI_Event_toBookID(ELF_TERMINATE_EVENT, bkid); // Закрыть предыдущий эльф
+      if (i < 4)
+        i++;
       else
-        MessageBox(EMPTY_TEXTID, STR(LNG_BOOK_NOT_FOUND), 0, 1, 5000, 0);
+        i = 0;
     }
-    else
-      MessageBox(EMPTY_TEXTID, STR(LNG_INVALID_BOOK_NAME), 0, 1, 5000, 0);
-    Timer_Set(100, DelayedRun, n);
+    while (CheckDesktop (i) == false);
+    AfterDesktopSwitch ();
+  }
+  else
+    MessageBox(EMPTY_TEXTID, STR(LNG_ALL_ACTS_DISABLED), NOIMAGE, 1, 5000, ESBook);
 }
 
-int Switch (int key, int r1 , int mode, LPARAM lparam, DISP_OBJ* dispobj) // Обработчик клавиши, он же калькулятор эльфов
+void PreviousDesktop () // Переключить на предыдущий рабочий стол
 {
-  if (((key == BCFG_Settings_Keys_ShiftForward_KeyCode) && (mode == BCFG_Settings_Keys_ShiftForward_KeyMode)) ||
-      ((key == BCFG_Settings_Keys_ShiftBackward_KeyCode) && (mode == BCFG_Settings_Keys_ShiftBackward_KeyMode)))
+  int i = ActiveDesktop;
+  
+  if (ActiveDesktop != -1)
+  {
+    do
+    {
+      if (i > 0)
+        i--;
+      else
+        i = 4;
+    }
+    while (CheckDesktop (i) == false);
+    AfterDesktopSwitch ();
+  }
+  else
+    MessageBox(EMPTY_TEXTID, STR(LNG_ALL_ACTS_DISABLED), NOIMAGE, 1, 5000, ESBook);
+}
+
+int KeySwitch (int key, int r1 , int mode, LPARAM lparam, DISP_OBJ* dispobj) // Функиця переключающая столы по клавише
+{
+  if ((key == BCFG_Settings_Keys_ShiftForward_KeyCode) && (mode == BCFG_Settings_Keys_ShiftForward_KeyMode))
     if (!isKeylocked() && (BCFG_Settings_OnlyInStandBy ? IsOnStandby() : 1))
     {
-      if (ActiveELFNumber != -1) // Если все эльфы отключены
-      {
-        int i = ActiveELFNumber;
-        bool f = false;
-        
-        do
-        {
-          if ((key == BCFG_Settings_Keys_ShiftForward_KeyCode) && (mode == BCFG_Settings_Keys_ShiftForward_KeyMode)) // Если переключение вперед 
-            if (i < 4)
-              i++;
-            else
-              i = 0;
-          else // Иначе назад
-            if (i > 0)
-              i--;
-            else
-              i = 4;
-          switch (ELFs[i].state)
-          {
-            case 1: // Эльф
-            {
-              CloseAndRun ((ELFs[ActiveELFNumber].state != 2 ? ActiveELFNumber : -1), i); // Если не пустота, то закрыть
-              ActiveELFNumber = i;
-              if (BCFG_Settings_VibrateWhenSwitch)
-                AudioControl_Vibrate(*GetAudioControlPtr(), BCFG_Settings_VibrationTime, 0, BCFG_Settings_VibrationTime);
-              f = true;
-              
-              break;
-            }
-            case 2: // Пустота
-            {
-              CloseAndRun ((ELFs[ActiveELFNumber].state != 2 ? ActiveELFNumber : -1), -1); // Если не пустота, то закрыть
-              ActiveELFNumber = i;
-              if (BCFG_Settings_VibrateWhenSwitch)
-                AudioControl_Vibrate(*GetAudioControlPtr(), BCFG_Settings_VibrationTime, 0, BCFG_Settings_VibrationTime);
-              f = true;
-              
-              break;
-            }
-          }
-        }
-        while (!f);
-      }
-      else
-        MessageBox(EMPTY_TEXTID, STR(LNG_ALL_ACTS_DISABLED), 0, 1, 5000, 0);
+      NextDesktop();
       
       return -1;
     }
-  
+  if ((key == BCFG_Settings_Keys_ShiftBackward_KeyCode) && (mode == BCFG_Settings_Keys_ShiftBackward_KeyMode))
+    if (!isKeylocked() && (BCFG_Settings_OnlyInStandBy ? IsOnStandby() : 1))
+    {
+      PreviousDesktop();
+      
+      return -1;
+    }
+    
   return 0;
 }
 
-int RepeatELF (int key, int r1 , int mode, LPARAM lparam, DISP_OBJ* dispobj)
+int RepeatELF (int key, int r1 , int mode, LPARAM lparam, DISP_OBJ* dispobj) // Повторный запуск эльфа по клавише // Иф иф иф иф иф...
 {
   if ((key == BCFG_Settings_Keys_RepeatActiveELF_KeyCode) &&
       (mode == BCFG_Settings_Keys_RepeatActiveELF_KeyMode))
-  {
     if (!isKeylocked() && (BCFG_Settings_OnlyInStandBy ? IsOnStandby() : 1))
-    {
-      if ((ActiveELFNumber != -1) && (ELFs[ActiveELFNumber].state != 2)) // Если эльф(ы) отключен(ы)
-      {
-        CloseAndRun (-1, ActiveELFNumber);
-        
-        return -1;
-      }
-    }
-  }
+      if ((ActiveDesktop != -1) && (Desktops[ActiveDesktop].ELFs[4].Showing == 1))
+        if (RunELF(Desktops[ActiveDesktop].ELFs[4]) != 0)
+            MessageBox(EMPTY_TEXTID, STR(LNG_ERROR), NOIMAGE, 1, 5000, ESBook);
   
   return 0;
 }
 
-void ExecuteFirstELF () // Запуск первого подходящего эльфа
+void RunFirstDesktop () // Запуск первого стола из списка
 {
-    if (ActiveELFNumber == -1)
-      ActiveELFNumber = 0;
-    int i = ActiveELFNumber;
-    bool f = false;
-    
-    do
+  if (ActiveDesktop == -1)
+    ActiveDesktop = 0;
+  int i = ActiveDesktop;
+  
+  while (Desktops[i].Showing == 0)
+  {
+    if (i < 4)
+      i++;
+    else
+      i = 0;
+    if (i == ActiveDesktop)
     {
-      switch (ELFs[i].state)
-      {
-        case 1: // Эльф
-        {
-          CloseAndRun (-1, i);
-          ActiveELFNumber = i;
-          f = true;
-          
-          break;
-        }
-        case 2: // Пустота
-        {
-          ActiveELFNumber = i;
-          f = true;
-          
-          break;
-        }
-      }
-      if (!f) // Если действие выполнено, то не производим проверок
-      {
-        if (i < 4)
-          i++;
-        else
-          i = 0;
-        if (i == ActiveELFNumber) // Если прошли весь список
-        {
-          ActiveELFNumber = -1;
-          f = true;
-          #ifndef NDEBUG
-            MessageBox(EMPTY_TEXTID, STR(LNG_ALL_ACTS_DISABLED), 0, 1, 5000, 0);
-          #endif
-        }
-      }
+      ActiveDesktop = -1;
+      break;
     }
-    while (!f);
+  }
+  if (ActiveDesktop != -1)
+    Timer_Set(200, OnTimerRunDesktop, i);
 }
 
-void InitVariables ()
+void InitVariables () // Инициализация переменных
 {
   InitConfig();
-  // Чтение конфига и запись его в массив
-  ELFs[0].state = BCFG_ELFs_ELF1_Action;
-  ELFs[0].path  = BCFG_ELFs_ELF1_ELFPath;
-  ELFs[0].book  = BCFG_ELFs_ELF1_BookName;
-  ELFs[1].state = BCFG_ELFs_ELF2_Action;
-  ELFs[1].path  = BCFG_ELFs_ELF2_ELFPath;
-  ELFs[1].book  = BCFG_ELFs_ELF2_BookName;
-  ELFs[2].state = BCFG_ELFs_ELF3_Action;
-  ELFs[2].path  = BCFG_ELFs_ELF3_ELFPath;
-  ELFs[2].book  = BCFG_ELFs_ELF3_BookName;
-  ELFs[3].state = BCFG_ELFs_ELF4_Action;
-  ELFs[3].path  = BCFG_ELFs_ELF4_ELFPath;
-  ELFs[3].book  = BCFG_ELFs_ELF4_BookName;
-  ELFs[4].state = BCFG_ELFs_ELF5_Action;
-  ELFs[4].path  = BCFG_ELFs_ELF5_ELFPath;
-  ELFs[4].book  = BCFG_ELFs_ELF5_BookName;
+  const int BCFG_ShowingArray[5][5] = {
+    {BCFG_11_ELF1_Showing, BCFG_11_ELF2_Showing, BCFG_11_ELF3_Showing, BCFG_11_ELF4_Showing, BCFG_11_ELF5_Showing},
+    {BCFG_12_ELF1_Showing, BCFG_12_ELF2_Showing, BCFG_12_ELF3_Showing, BCFG_12_ELF4_Showing, BCFG_12_ELF5_Showing},
+    {BCFG_13_ELF1_Showing, BCFG_13_ELF2_Showing, BCFG_13_ELF3_Showing, BCFG_13_ELF4_Showing, BCFG_13_ELF5_Showing},
+    {BCFG_14_ELF1_Showing, BCFG_14_ELF2_Showing, BCFG_14_ELF3_Showing, BCFG_14_ELF4_Showing, BCFG_14_ELF5_Showing},
+    {BCFG_15_ELF1_Showing, BCFG_15_ELF2_Showing, BCFG_15_ELF3_Showing, BCFG_15_ELF4_Showing, BCFG_15_ELF5_Showing}};
+  const wchar_t* BCFG_PathArray[5][5] = {
+    {BCFG_11_ELF1_ELFPath, BCFG_11_ELF2_ELFPath, BCFG_11_ELF3_ELFPath, BCFG_11_ELF4_ELFPath, BCFG_11_ELF5_ELFPath},
+    {BCFG_12_ELF1_ELFPath, BCFG_12_ELF2_ELFPath, BCFG_12_ELF3_ELFPath, BCFG_12_ELF4_ELFPath, BCFG_12_ELF5_ELFPath},
+    {BCFG_13_ELF1_ELFPath, BCFG_13_ELF2_ELFPath, BCFG_13_ELF3_ELFPath, BCFG_13_ELF4_ELFPath, BCFG_13_ELF5_ELFPath},
+    {BCFG_14_ELF1_ELFPath, BCFG_14_ELF2_ELFPath, BCFG_14_ELF3_ELFPath, BCFG_14_ELF4_ELFPath, BCFG_14_ELF5_ELFPath},
+    {BCFG_15_ELF1_ELFPath, BCFG_15_ELF2_ELFPath, BCFG_15_ELF3_ELFPath, BCFG_15_ELF4_ELFPath, BCFG_15_ELF5_ELFPath}};
+  const char* BCFG_BookArray[5][5] = {
+    {BCFG_11_ELF1_BookName, BCFG_11_ELF2_BookName, BCFG_11_ELF3_BookName, BCFG_11_ELF4_BookName, BCFG_11_ELF5_BookName},
+    {BCFG_12_ELF1_BookName, BCFG_12_ELF2_BookName, BCFG_12_ELF3_BookName, BCFG_12_ELF4_BookName, BCFG_12_ELF5_BookName},
+    {BCFG_13_ELF1_BookName, BCFG_13_ELF2_BookName, BCFG_13_ELF3_BookName, BCFG_13_ELF4_BookName, BCFG_13_ELF5_BookName},
+    {BCFG_14_ELF1_BookName, BCFG_14_ELF2_BookName, BCFG_14_ELF3_BookName, BCFG_14_ELF4_BookName, BCFG_14_ELF5_BookName},
+    {BCFG_15_ELF1_BookName, BCFG_15_ELF2_BookName, BCFG_15_ELF3_BookName, BCFG_15_ELF4_BookName, BCFG_15_ELF5_BookName}};
+  
+  int i, j;
+  bool f;
+  
+  for (i = 0; i < 5; i++)
+  {
+    f = false;
+    for (j = 0; j < 5; j++)
+    {
+      // Запись значений в массив
+      Desktops[i].ELFs[j].Showing = (BCFG_ShowingArray[i][j] == 0 ? 1 : 0); // Чтобы не ломать мозг инверсией
+      Desktops[i].ELFs[j].Path = BCFG_PathArray[i][j];
+      Desktops[i].ELFs[j].Book = BCFG_BookArray[i][j];
+      if (Desktops[i].ELFs[j].Showing == 1)
+        f = true;
+    }
+    if (f == false) // Если все эльфы рабочего стола отключены, то отключаем раб. стол
+      Desktops[i].Showing = 0;
+    else
+      Desktops[i].Showing = 1;
+  }
+  
+  if (BCFG_21_WallWhenSwitch) // Обои водостойкие
+  {
+    const wchar_t* BCFG_WallArray[5] = {BCFG_211_Wall1, BCFG_211_Wall2, BCFG_211_Wall3, BCFG_211_Wall4, BCFG_211_Wall5};
+    for (i = 0; i < 5; i++)
+      Desktops[i].Wallpaper = BCFG_WallArray[i];
+  }
 }
 
-void FirstRun ()
+void FirstRun () // Действия выполяемые при запуске
 {
   InitVariables ();
-  LoadSaveLastState(0);
-  ExecuteFirstELF ();
+  LoadLastState ();
+  RunFirstDesktop ();
   AudioControl_Init();
-  ModifyKeyHook(Switch, KEY_HOOK_ADD, 0);
+  ModifyKeyHook(KeySwitch, KEY_HOOK_ADD, 0);
   if (BCFG_Settings_RepeatActiveELF)
     ModifyKeyHook(RepeatELF, KEY_HOOK_ADD, 0);
 }
@@ -440,14 +513,14 @@ int main ()
 {
   if (FindBookEx(BookToFind, (int*)"E-switch")) // Проверка на запущенность
   {
-    MessageBox(EMPTY_TEXTID, STR(LNG_ALREADY_RUNNED), 0, 1, 5000, 0);
+    MessageBox(EMPTY_TEXTID, STR(LNG_ALREADY_RUNNED), NOIMAGE, 1, 5000, ESBook);
     SUBPROC(elf_exit);
     
     return 0;
   }
-  trace_init();
-  CreateESBook();
+  trace_init ();
+  CreateESBook ();
   FirstRun ();
-  
+    
   return 0;
 }

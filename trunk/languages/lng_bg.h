@@ -6,6 +6,10 @@
 // Заменять можно только текст заключенный в кавычки, например
 // #define LNG_ELFS                  "<Этот текст можно изменить>"
 
+// Translators of this file: Добрин Тодоров, yuli_d
+
+#include "languages\lng_en.h"
+
 /* ---------- Settings/Настройки ---------- */
 /* --- (max. 31 symbols/макс. 31 символ --- */
 #define LNG_ELFS                  "Елфи"
@@ -45,8 +49,5 @@
 /* ----------------------------------------- */
 
 /* -------------- Other/Прочее ------------- */
-#define LNG_NAME                  L"BG" // Language name/Краткое название языка
-//#define LNG_ABOUT_TRANSLATOR    L"\nTranslator: <Your name or nickname>"
-//#define LNG_ABOUT_TRANSLATOR    L"\nПереводчик: <Ваше имя или никнейм>"
-#define LNG_ABOUT_TRANSLATOR      L"\nПреводач: Добрин Тодоров, yuli_d"
+#define LNG_NAME                  "BG" // Language name/Краткое название языка
 /* ----------------------------------------- */
