@@ -7,101 +7,95 @@
     <name>Debug</name>
     <outputs>
       <file>$PROJ_DIR$\languages.h</file>
-      <file>$PROJ_DIR$\languages\lng_bg.h</file>
-      <file>$PROJ_DIR$\languages\lng_en.h</file>
-      <file>$TOOLKIT_DIR$\include\Types.h</file>
-      <file>$TOOLKIT_DIR$\include\Lib_Clara.h</file>
-      <file>$PROJ_DIR$\Debug\List\_cpp2.s79</file>
-      <file>$PROJ_DIR$\Debug\Obj\conf_loader.pbi</file>
-      <file>$TOOLKIT_DIR$\include\DYN_mac.asm</file>
-      <file>$PROJ_DIR$\E-switch_dbg.tst</file>
+      <file>$PROJ_DIR$\debug.cpp</file>
       <file>$TOOLKIT_DIR$\deleaker\Lib_Clara_original.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\E-switch.pbd</file>
-      <file>$PROJ_DIR$\..\..\projects\include\func.asm</file>
-      <file>$TOOLKIT_DIR$\include\cfg_items.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\mem.pbi</file>
-      <file>$PROJ_DIR$\Debug\List\main.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\mem.r79</file>
+      <file>$PROJ_DIR$\Debug\List\func.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\mem2.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\config_data.pbi</file>
       <file>$TOOLKIT_DIR$\include\1.xcl</file>
+      <file>$PROJ_DIR$\Debug\List\mem2.s79</file>
+      <file>$PROJ_DIR$\mem.cpp</file>
+      <file>$PROJ_DIR$\Debug\List\_cpp2.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\_cpp2.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\mem.pbi</file>
       <file>$TOOLKIT_DIR$\include\Colors.h</file>
-      <file>$TOOLKIT_DIR$\include\obsolete.h</file>
+      <file>$PROJ_DIR$\Debug\List\config_data.lst</file>
       <file>$PROJ_DIR$\Debug\List\main.s79</file>
+      <file>$TOOLKIT_DIR$\include\DYN_tag.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\debug.r79</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\E-switch_dbg.map</file>
+      <file>$PROJ_DIR$\Debug\List\main.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\debug.pbi</file>
+      <file>$PROJ_DIR$\..\..\projects\include\func.asm</file>
+      <file>$PROJ_DIR$\Debug\Obj\conf_loader.r79</file>
+      <file>$PROJ_DIR$\config_data.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.r79</file>
+      <file>$TOOLKIT_DIR$\include\cfg_items.h</file>
+      <file>$TOOLKIT_DIR$\C++\_cpp.C</file>
+      <file>$PROJ_DIR$\E-switch_dbg.tst;E-switch_dbg.elf</file>
+      <file>$TOOLKIT_DIR$\deleaker\mem2.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\config_data.r79</file>
+      <file>$TOOLKIT_DIR$\C++\_cpp2.cpp</file>
+      <file>$PROJ_DIR$\Debug\List\mem2.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\conf_loader.pbi</file>
+      <file>$TOOLKIT_DIR$\lib\dl5tpainl8n.r79</file>
+      <file>$PROJ_DIR$\E-switch_dbg.elf</file>
+      <file>$PROJ_DIR$\Debug\Obj\E-switch.pbd</file>
+      <file>$TOOLKIT_DIR$\include\Types.h</file>
       <file>$PROJ_DIR$\conf_loader.h</file>
-      <file>$PROJ_DIR$\languages\lng_es.h</file>
       <file>$PROJ_DIR$\languages\lng_ru.h</file>
-      <file>$PROJ_DIR$\languages\lng_tr.h</file>
-      <file>$PROJ_DIR$\languages\lng_uk.h</file>
       <file>$PROJ_DIR$\conf_loader.cpp</file>
       <file>$PROJ_DIR$\config_data.c</file>
-      <file>$PROJ_DIR$\Debug\Obj\config_data.r79</file>
       <file>$PROJ_DIR$\Debug\Obj\_cpp2.r79</file>
+      <file>$PROJ_DIR$\Debug\List\conf_loader.lst</file>
       <file>$TOOLKIT_DIR$\include\func.asm</file>
       <file>$PROJ_DIR$\main.cpp</file>
       <file>$TOOLKIT_DIR$\deleaker\mem2.cpp</file>
-      <file>$TOOLKIT_DIR$\include\DYN_ext.h</file>
-      <file>$TOOLKIT_DIR$\C++\_cpp2.cpp</file>
-      <file>$PROJ_DIR$\debug.cpp</file>
-      <file>$PROJ_DIR$\Debug\List\conf_loader.s79</file>
-      <file>$PROJ_DIR$\Debug\List\conf_loader.lst</file>
-      <file>$PROJ_DIR$\mem.cpp</file>
-      <file>$PROJ_DIR$\Debug\List\_cpp2.lst</file>
-      <file>$TOOLKIT_DIR$\C++\_cpp.C</file>
-      <file>$PROJ_DIR$\Debug\List\config_data.s79</file>
-      <file>$PROJ_DIR$\Debug\Obj\mem2.r79</file>
-      <file>$PROJ_DIR$\Debug\Obj\main.r79</file>
-      <file>$TOOLKIT_DIR$\lib\dl5tpainl8n.r79</file>
-      <file>$PROJ_DIR$\Debug\Obj\debug.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\_cpp.r79</file>
-      <file>$PROJ_DIR$\Debug\List\mem2.lst</file>
-      <file>$PROJ_DIR$\Debug\List\mem2.s79</file>
-      <file>$PROJ_DIR$\Debug\Obj\mem2.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\debug.r79</file>
-      <file>$PROJ_DIR$\Debug\Obj\conf_loader.r79</file>
       <file>$TOOLKIT_DIR$\include\dir.h</file>
-      <file>$PROJ_DIR$\Debug\List\config_data.lst</file>
-      <file>$PROJ_DIR$\Debug\Obj\mem.r79</file>
+      <file>$TOOLKIT_DIR$\include\DYN_mac.asm</file>
       <file>$PROJ_DIR$\Debug\Obj\func.r79</file>
+      <file>$PROJ_DIR$\Debug\Obj\mem2.r79</file>
+      <file>$TOOLKIT_DIR$\include\Lib_Clara.h</file>
+      <file>$PROJ_DIR$\Debug\List\conf_loader.s79</file>
+      <file>$PROJ_DIR$\Debug\List\_cpp2.s79</file>
+      <file>$TOOLKIT_DIR$\include\obsolete.h</file>
+      <file>$TOOLKIT_DIR$\include\DYN_ext.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\_cpp.r79</file>
+      <file>$PROJ_DIR$\Debug\List\config_data.s79</file>
+      <file>$PROJ_DIR$\E-switch_dbg.tst</file>
       <file>$PROJ_DIR$\Debug\Obj\_cpp.pbi</file>
-      <file>$TOOLKIT_DIR$\include\DYN_tag.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
-      <file>$TOOLKIT_DIR$\deleaker\mem2.h</file>
-      <file>$PROJ_DIR$\config_data.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\config_data.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\_cpp2.pbi</file>
-      <file>$PROJ_DIR$\E-switch_dbg.elf</file>
-      <file>$PROJ_DIR$\Debug\List\func.lst</file>
-      <file>$PROJ_DIR$\E-switch_dbg.tst;E-switch_dbg.elf</file>
-      <file>$PROJ_DIR$\Debug\List\E-switch_dbg.map</file>
     </outputs>
     <file>
-      <name>$PROJ_DIR$\E-switch_dbg.tst</name>
+      <name>$PROJ_DIR$\debug.cpp</name>
       <outputs>
         <tool>
-          <name>XLINK</name>
-          <file> 64</file>
+          <name>ICCARM</name>
+          <file> 17</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 21</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>XLINK</name>
-          <file> 15 49 26 53 41 40 42</file>
+          <name>BICOMP</name>
+          <file> 51 37 55 16 13 54</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\Debug\Obj\E-switch.pbd</name>
-      <inputs>
-        <tool>
-          <name>BILINK</name>
-          <file> 6 59 56 47</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\projects\include\func.asm</name>
+      <name>$PROJ_DIR$\mem.cpp</name>
       <outputs>
         <tool>
-          <name>AARM</name>
-          <file> 53</file>
+          <name>ICCARM</name>
+          <file> 3</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 12</file>
         </tool>
       </outputs>
     </file>
@@ -110,16 +104,111 @@
       <outputs>
         <tool>
           <name>XLINK</name>
-          <file> 8 64</file>
+          <file> 19 58</file>
         </tool>
       </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\projects\include\func.asm</name>
+      <outputs>
+        <tool>
+          <name>AARM</name>
+          <file> 49</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\C++\_cpp.C</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 56</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 59</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\E-switch_dbg.tst;E-switch_dbg.elf</name>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 7 42 23 30 49 25 34</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\C++\_cpp2.cpp</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 42 53 10</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 11</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 51 37 55 16 13 54</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 51 37 55 16 13 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\E-switch_dbg.elf</name>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 7 42 23 30 49 25 34</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Obj\E-switch.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 33 6 18 5</file>
+        </tool>
+      </inputs>
     </file>
     <file>
       <name>$PROJ_DIR$\conf_loader.cpp</name>
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 49 34 35</file>
+          <file> 23 52 43</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 33</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 29 51 37 55 16 13 54 2 47 26 38</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 51 37 55 16 13 54 47 26 38</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\config_data.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 30 57 14</file>
         </tool>
         <tool>
           <name>BICOMP</name>
@@ -129,34 +218,11 @@
       <inputs>
         <tool>
           <name>ICCARM</name>
-          <file> 57 4 3 31 55 16 17 9 50 12 19</file>
+          <file> 26 37 24 0 39</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 4 3 31 55 16 17 50 12 19</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\config_data.c</name>
-      <outputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 26 39 51</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 59</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 12 3 58 0 21</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 12 3 58 0 21</file>
+          <file> 26 37 24 0 39</file>
         </tool>
       </inputs>
     </file>
@@ -165,13 +231,13 @@
       <outputs>
         <tool>
           <name>AARM</name>
-          <file> 53 62</file>
+          <file> 49 4</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>AARM</name>
-          <file> 55 7</file>
+          <file> 16 48</file>
         </tool>
       </inputs>
     </file>
@@ -180,21 +246,21 @@
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 41 18 14</file>
+          <file> 25 15 20</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 56</file>
+          <file> 18</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICCARM</name>
-          <file> 57 4 3 31 55 16 17 9 50 12 19 58 0 21</file>
+          <file> 29 51 37 55 16 13 54 2 47 26 38 24 0 39</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 4 3 31 55 16 17 50 12 19 58 0 21</file>
+          <file> 51 37 55 16 13 54 47 26 38 24 0 39</file>
         </tool>
       </inputs>
     </file>
@@ -203,107 +269,36 @@
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 40 46 45</file>
+          <file> 50 8 32</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 47</file>
+          <file> 5</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICCARM</name>
-          <file> 57 4 3 31 55 16 17 9 50</file>
+          <file> 29 51 37 55 16 13 54 2 47</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 57 4 3 31 55 16 17 9 50</file>
+          <file> 29 51 37 55 16 13 54 2 47</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\C++\_cpp2.cpp</name>
+      <name>$PROJ_DIR$\E-switch_dbg.tst</name>
       <outputs>
         <tool>
-          <name>ICCARM</name>
-          <file> 27 5 37</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 60</file>
+          <name>XLINK</name>
+          <file> 19</file>
         </tool>
       </outputs>
-      <inputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 4 3 31 55 16 17</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 4 3 31 55 16 17</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\debug.cpp</name>
-      <outputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 48</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 43</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 4 3 31 55 16 17</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\mem.cpp</name>
-      <outputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 52</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 13</file>
-        </tool>
-      </outputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\C++\_cpp.C</name>
-      <outputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 44</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 54</file>
-        </tool>
-      </outputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\E-switch_dbg.elf</name>
       <inputs>
         <tool>
           <name>XLINK</name>
-          <file> 15 27 49 26 53 41 42</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\E-switch_dbg.tst;E-switch_dbg.elf</name>
-      <inputs>
-        <tool>
-          <name>XLINK</name>
-          <file> 15 27 49 26 53 41 42</file>
+          <file> 7 23 30 49 25 50 34</file>
         </tool>
       </inputs>
     </file>
@@ -314,39 +309,41 @@
       <file>$PROJ_DIR$\languages.h</file>
       <file>$PROJ_DIR$\languages\lng_bg.h</file>
       <file>$PROJ_DIR$\languages\lng_en.h</file>
-      <file>$TOOLKIT_DIR$\include\Types.h</file>
-      <file>$TOOLKIT_DIR$\include\Lib_Clara.h</file>
-      <file>$TOOLKIT_DIR$\include\DYN_mac.asm</file>
       <file>$TOOLKIT_DIR$\deleaker\Lib_Clara_original.h</file>
-      <file>$TOOLKIT_DIR$\include\cfg_items.h</file>
-      <file>$PROJ_DIR$\Release BG\List\config_data.s79</file>
       <file>$TOOLKIT_DIR$\include\1.xcl</file>
       <file>$TOOLKIT_DIR$\include\Colors.h</file>
-      <file>$TOOLKIT_DIR$\include\obsolete.h</file>
-      <file>$PROJ_DIR$\Release BG\Obj\func.r79</file>
-      <file>$PROJ_DIR$\Release BG\List\_cpp2.lst</file>
-      <file>$PROJ_DIR$\E-switch_bg.elf</file>
-      <file>$PROJ_DIR$\Release BG\List\main.s79</file>
-      <file>$PROJ_DIR$\Release BG\Obj\mem2.pbi</file>
-      <file>$PROJ_DIR$\Release BG\Obj\config_data.r79</file>
-      <file>$PROJ_DIR$\Release BG\Obj\_cpp2.r79</file>
-      <file>$PROJ_DIR$\Release BG\Obj\mem2.r79</file>
-      <file>$PROJ_DIR$\Release BG\List\E-switch_bg.map</file>
-      <file>$PROJ_DIR$\Release BG\List\conf_loader.lst</file>
-      <file>$PROJ_DIR$\Release BG\Obj\conf_loader.pbi</file>
-      <file>$PROJ_DIR$\Release BG\List\func.lst</file>
-      <file>$PROJ_DIR$\Release BG\Obj\_cpp2.pbi</file>
-      <file>$PROJ_DIR$\Release BG\List\main.lst</file>
-      <file>$PROJ_DIR$\Release BG\List\mem2.lst</file>
-      <file>$PROJ_DIR$\Release BG\List\_cpp2.s79</file>
-      <file>$PROJ_DIR$\Release BG\List\config_data.lst</file>
-      <file>$PROJ_DIR$\Release BG\List\mem2.s79</file>
+      <file>$TOOLKIT_DIR$\include\DYN_tag.h</file>
+      <file>$PROJ_DIR$\config_data.h</file>
+      <file>$TOOLKIT_DIR$\include\cfg_items.h</file>
+      <file>$TOOLKIT_DIR$\deleaker\mem2.h</file>
+      <file>$TOOLKIT_DIR$\C++\_cpp2.cpp</file>
+      <file>$TOOLKIT_DIR$\lib\dl5tpainl8n.r79</file>
       <file>$PROJ_DIR$\Release BG\Obj\conf_loader.r79</file>
-      <file>$PROJ_DIR$\Release BG\List\conf_loader.s79</file>
-      <file>$PROJ_DIR$\Release BG\Obj\E-switch.pbd</file>
+      <file>$TOOLKIT_DIR$\include\Types.h</file>
+      <file>$PROJ_DIR$\Release BG\List\main.lst</file>
       <file>$PROJ_DIR$\Release BG\Obj\main.r79</file>
-      <file>$PROJ_DIR$\Release BG\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Release BG\List\func.lst</file>
+      <file>$PROJ_DIR$\Release BG\List\mem2.s79</file>
+      <file>$PROJ_DIR$\Release BG\List\_cpp2.s79</file>
+      <file>$PROJ_DIR$\Release BG\List\conf_loader.s79</file>
+      <file>$PROJ_DIR$\Release BG\Obj\config_data.r79</file>
       <file>$PROJ_DIR$\Release BG\Obj\config_data.pbi</file>
+      <file>$PROJ_DIR$\Release BG\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Release BG\Obj\func.r79</file>
+      <file>$PROJ_DIR$\E-switch_bg.elf</file>
+      <file>$PROJ_DIR$\Release BG\List\config_data.s79</file>
+      <file>$PROJ_DIR$\Release BG\Obj\_cpp2.pbi</file>
+      <file>$PROJ_DIR$\Release BG\List\config_data.lst</file>
+      <file>$PROJ_DIR$\Release BG\Obj\mem2.r79</file>
+      <file>$PROJ_DIR$\Release BG\Obj\conf_loader.pbi</file>
+      <file>$PROJ_DIR$\Release BG\List\_cpp2.lst</file>
+      <file>$PROJ_DIR$\Release BG\Obj\E-switch.pbd</file>
+      <file>$PROJ_DIR$\Release BG\Obj\mem2.pbi</file>
+      <file>$PROJ_DIR$\Release BG\List\conf_loader.lst</file>
+      <file>$PROJ_DIR$\Release BG\List\main.s79</file>
+      <file>$PROJ_DIR$\Release BG\List\mem2.lst</file>
+      <file>$PROJ_DIR$\Release BG\Obj\_cpp2.r79</file>
+      <file>$PROJ_DIR$\Release BG\List\E-switch_bg.map</file>
       <file>$PROJ_DIR$\conf_loader.h</file>
       <file>$PROJ_DIR$\languages\lng_es.h</file>
       <file>$PROJ_DIR$\languages\lng_ru.h</file>
@@ -357,44 +354,65 @@
       <file>$TOOLKIT_DIR$\include\func.asm</file>
       <file>$PROJ_DIR$\main.cpp</file>
       <file>$TOOLKIT_DIR$\deleaker\mem2.cpp</file>
-      <file>$TOOLKIT_DIR$\include\DYN_ext.h</file>
-      <file>$TOOLKIT_DIR$\C++\_cpp2.cpp</file>
-      <file>$TOOLKIT_DIR$\lib\dl5tpainl8n.r79</file>
       <file>$TOOLKIT_DIR$\include\dir.h</file>
-      <file>$TOOLKIT_DIR$\include\DYN_tag.h</file>
-      <file>$TOOLKIT_DIR$\deleaker\mem2.h</file>
-      <file>$PROJ_DIR$\config_data.h</file>
+      <file>$TOOLKIT_DIR$\include\DYN_mac.asm</file>
+      <file>$TOOLKIT_DIR$\include\Lib_Clara.h</file>
+      <file>$TOOLKIT_DIR$\include\obsolete.h</file>
+      <file>$TOOLKIT_DIR$\include\DYN_ext.h</file>
     </outputs>
-    <file>
-      <name>$PROJ_DIR$\E-switch_bg.elf</name>
-      <outputs>
-        <tool>
-          <name>XLINK</name>
-          <file> 20</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>XLINK</name>
-          <file> 9 30 17 12 33 19 48</file>
-        </tool>
-      </inputs>
-    </file>
     <file>
       <name>[ROOT_NODE]</name>
       <outputs>
         <tool>
           <name>XLINK</name>
-          <file> 14 20</file>
+          <file> 37 24</file>
         </tool>
       </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\C++\_cpp2.cpp</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 36 18 30</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 26</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 50 13 52 6 5 51</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 50 13 52 6 5 51</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\E-switch_bg.elf</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 37</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 4 12 20 23 15 28 11</file>
+        </tool>
+      </inputs>
     </file>
     <file>
       <name>$PROJ_DIR$\Release BG\Obj\E-switch.pbd</name>
       <inputs>
         <tool>
           <name>BILINK</name>
-          <file> 22 35 34 16</file>
+          <file> 29 21 22 32</file>
         </tool>
       </inputs>
     </file>
@@ -403,7 +421,68 @@
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 30 31 21</file>
+          <file> 12 19 33</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 29</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 9 50 13 52 6 5 51 3 48 8 38</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 50 13 52 6 5 51 48 8 38</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\config_data.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 20 25 27</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 21</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 8 13 7 0 1 2</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 8 13 7 0 1</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\include\func.asm</name>
+      <outputs>
+        <tool>
+          <name>AARM</name>
+          <file> 23 16</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>AARM</name>
+          <file> 6 49</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\main.cpp</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 15 34 14</file>
         </tool>
         <tool>
           <name>BICOMP</name>
@@ -413,72 +492,11 @@
       <inputs>
         <tool>
           <name>ICCARM</name>
-          <file> 51 4 3 46 50 10 11 6 49 7 36</file>
+          <file> 9 50 13 52 6 5 51 3 48 8 38 7 0 1 2</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 4 3 46 50 10 11 49 7 36</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\config_data.c</name>
-      <outputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 17 8 28</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 35</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 7 3 52 0 1 2</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 7 3 52 0 1</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\include\func.asm</name>
-      <outputs>
-        <tool>
-          <name>AARM</name>
-          <file> 12 23</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>AARM</name>
-          <file> 50 5</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\main.cpp</name>
-      <outputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 33 15 25</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 34</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 51 4 3 46 50 10 11 6 49 7 36 52 0 1 2</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 4 3 46 50 10 11 49 7 36 52 0 1</file>
+          <file> 50 13 52 6 5 51 48 8 38 7 0 1</file>
         </tool>
       </inputs>
     </file>
@@ -487,44 +505,21 @@
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 19 29 26</file>
+          <file> 28 17 35</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 16</file>
+          <file> 32</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICCARM</name>
-          <file> 51 4 3 46 50 10 11 6</file>
+          <file> 9 50 13 52 6 5 51 3</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 4 3 46 50 10 11</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\C++\_cpp2.cpp</name>
-      <outputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 18 27 13</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 24</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 4 3 46 50 10 11</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 4 3 46 50 10 11</file>
+          <file> 50 13 52 6 5 51</file>
         </tool>
       </inputs>
     </file>
@@ -535,41 +530,43 @@
       <file>$PROJ_DIR$\languages.h</file>
       <file>$PROJ_DIR$\languages\lng_bg.h</file>
       <file>$PROJ_DIR$\languages\lng_en.h</file>
-      <file>$TOOLKIT_DIR$\include\Types.h</file>
-      <file>$TOOLKIT_DIR$\include\Lib_Clara.h</file>
-      <file>$TOOLKIT_DIR$\include\DYN_mac.asm</file>
       <file>$TOOLKIT_DIR$\deleaker\Lib_Clara_original.h</file>
-      <file>$TOOLKIT_DIR$\include\cfg_items.h</file>
       <file>$TOOLKIT_DIR$\include\1.xcl</file>
       <file>$TOOLKIT_DIR$\include\Colors.h</file>
-      <file>$TOOLKIT_DIR$\include\obsolete.h</file>
-      <file>$PROJ_DIR$\Release EN\Exe\E-switch.elf</file>
-      <file>$PROJ_DIR$\Release EN\Obj\conf_loader.r79</file>
-      <file>$PROJ_DIR$\Release EN\List\func.lst</file>
-      <file>$PROJ_DIR$\Release EN\List\main.lst</file>
-      <file>$PROJ_DIR$\Release EN\Obj\config_data.r79</file>
-      <file>$PROJ_DIR$\Release EN\List\_cpp2.lst</file>
-      <file>$PROJ_DIR$\Release EN\List\mem2.s79</file>
-      <file>$PROJ_DIR$\Release EN\List\config_data.lst</file>
-      <file>$PROJ_DIR$\Release EN\List\E-switch_en.map</file>
-      <file>$PROJ_DIR$\Release EN\List\main.s79</file>
-      <file>$PROJ_DIR$\Release EN\List\_cpp2.s79</file>
-      <file>$PROJ_DIR$\Release EN\List\conf_loader.lst</file>
-      <file>$PROJ_DIR$\Release EN\Obj\mem2.pbi</file>
-      <file>$PROJ_DIR$\Release EN\Obj\_cpp2.r79</file>
-      <file>$PROJ_DIR$\Release EN\List\mem2.lst</file>
-      <file>$PROJ_DIR$\Release EN\List\config_data.s79</file>
-      <file>$PROJ_DIR$\Release EN\List\conf_loader.s79</file>
-      <file>$PROJ_DIR$\Release EN\Obj\conf_loader.pbi</file>
-      <file>$PROJ_DIR$\Release EN\Obj\config_data.pbi</file>
-      <file>$PROJ_DIR$\Release EN\Obj\E-switch.pbd</file>
-      <file>$PROJ_DIR$\Release EN\Obj\_cpp2.pbi</file>
+      <file>$TOOLKIT_DIR$\include\DYN_tag.h</file>
+      <file>$PROJ_DIR$\config_data.h</file>
+      <file>$TOOLKIT_DIR$\include\cfg_items.h</file>
+      <file>$TOOLKIT_DIR$\deleaker\mem2.h</file>
+      <file>$TOOLKIT_DIR$\C++\_cpp2.cpp</file>
+      <file>$TOOLKIT_DIR$\lib\dl5tpainl8n.r79</file>
+      <file>$TOOLKIT_DIR$\include\Types.h</file>
       <file>$PROJ_DIR$\E-switch_en.elf</file>
-      <file>$PROJ_DIR$\Release EN\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Release EN\Obj\_cpp2.pbi</file>
       <file>$PROJ_DIR$\Release EN\Exe\E-switch_en.elf</file>
       <file>$PROJ_DIR$\Release EN\Obj\func.r79</file>
-      <file>$PROJ_DIR$\Release EN\Obj\main.r79</file>
+      <file>$PROJ_DIR$\Release EN\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Release EN\List\_cpp2.s79</file>
+      <file>$PROJ_DIR$\Release EN\List\main.lst</file>
+      <file>$PROJ_DIR$\Release EN\List\config_data.lst</file>
+      <file>$PROJ_DIR$\Release EN\List\func.lst</file>
       <file>$PROJ_DIR$\Release EN\Obj\mem2.r79</file>
+      <file>$PROJ_DIR$\Release EN\List\conf_loader.s79</file>
+      <file>$PROJ_DIR$\Release EN\List\config_data.s79</file>
+      <file>$PROJ_DIR$\Release EN\Exe\E-switch.elf</file>
+      <file>$PROJ_DIR$\Release EN\Obj\main.r79</file>
+      <file>$PROJ_DIR$\Release EN\Obj\conf_loader.r79</file>
+      <file>$PROJ_DIR$\Release EN\List\mem2.s79</file>
+      <file>$PROJ_DIR$\Release EN\Obj\config_data.pbi</file>
+      <file>$PROJ_DIR$\Release EN\Obj\_cpp2.r79</file>
+      <file>$PROJ_DIR$\Release EN\Obj\mem2.pbi</file>
+      <file>$PROJ_DIR$\Release EN\List\main.s79</file>
+      <file>$PROJ_DIR$\Release EN\List\conf_loader.lst</file>
+      <file>$PROJ_DIR$\Release EN\Obj\conf_loader.pbi</file>
+      <file>$PROJ_DIR$\Release EN\Obj\config_data.r79</file>
+      <file>$PROJ_DIR$\Release EN\List\E-switch_en.map</file>
+      <file>$PROJ_DIR$\Release EN\List\_cpp2.lst</file>
+      <file>$PROJ_DIR$\Release EN\List\mem2.lst</file>
+      <file>$PROJ_DIR$\Release EN\Obj\E-switch.pbd</file>
       <file>$PROJ_DIR$\conf_loader.h</file>
       <file>$PROJ_DIR$\languages\lng_es.h</file>
       <file>$PROJ_DIR$\languages\lng_ru.h</file>
@@ -580,38 +577,41 @@
       <file>$TOOLKIT_DIR$\include\func.asm</file>
       <file>$PROJ_DIR$\main.cpp</file>
       <file>$TOOLKIT_DIR$\deleaker\mem2.cpp</file>
-      <file>$TOOLKIT_DIR$\include\DYN_ext.h</file>
-      <file>$TOOLKIT_DIR$\C++\_cpp2.cpp</file>
-      <file>$TOOLKIT_DIR$\lib\dl5tpainl8n.r79</file>
       <file>$TOOLKIT_DIR$\include\dir.h</file>
-      <file>$TOOLKIT_DIR$\include\DYN_tag.h</file>
-      <file>$TOOLKIT_DIR$\deleaker\mem2.h</file>
-      <file>$PROJ_DIR$\config_data.h</file>
+      <file>$TOOLKIT_DIR$\include\DYN_mac.asm</file>
+      <file>$TOOLKIT_DIR$\include\Lib_Clara.h</file>
+      <file>$TOOLKIT_DIR$\include\obsolete.h</file>
+      <file>$TOOLKIT_DIR$\include\DYN_ext.h</file>
     </outputs>
     <file>
       <name>[ROOT_NODE]</name>
       <outputs>
         <tool>
           <name>XLINK</name>
-          <file> 32 19</file>
+          <file> 13 36</file>
         </tool>
       </outputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\Release EN\Exe\E-switch.elf</name>
-      <inputs>
+      <name>$PROJ_DIR$\..\C++\_cpp2.cpp</name>
+      <outputs>
         <tool>
-          <name>XLINK</name>
-          <file> 8 24 12 15 35 36 50</file>
+          <name>ICCARM</name>
+          <file> 30 18 37</file>
         </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\Release EN\Obj\E-switch.pbd</name>
+        <tool>
+          <name>BICOMP</name>
+          <file> 14</file>
+        </tool>
+      </outputs>
       <inputs>
         <tool>
-          <name>BILINK</name>
-          <file> 28 29 33 23</file>
+          <name>ICCARM</name>
+          <file> 52 12 54 6 5 53</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 52 12 54 6 5 53</file>
         </tool>
       </inputs>
     </file>
@@ -620,13 +620,13 @@
       <outputs>
         <tool>
           <name>XLINK</name>
-          <file> 19</file>
+          <file> 36</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>XLINK</name>
-          <file> 8 12 15 35 36 37 50</file>
+          <file> 4 27 35 16 26 22 11</file>
         </tool>
       </inputs>
     </file>
@@ -635,7 +635,25 @@
       <inputs>
         <tool>
           <name>XLINK</name>
-          <file> 8 24 12 15 35 36 50</file>
+          <file> 4 30 27 35 16 26 11</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Release EN\Exe\E-switch.elf</name>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 4 30 27 35 16 26 11</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Release EN\Obj\E-switch.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 34 29 17 31</file>
         </tool>
       </inputs>
     </file>
@@ -644,21 +662,21 @@
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 12 27 22</file>
+          <file> 27 23 33</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 28</file>
+          <file> 34</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICCARM</name>
-          <file> 53 4 3 48 52 9 10 6 51 7 38</file>
+          <file> 9 52 12 54 6 5 53 3 50 8 40</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 4 3 48 52 9 10 51 7 38</file>
+          <file> 52 12 54 6 5 53 50 8 40</file>
         </tool>
       </inputs>
     </file>
@@ -667,7 +685,7 @@
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 15 26 18</file>
+          <file> 35 24 20</file>
         </tool>
         <tool>
           <name>BICOMP</name>
@@ -677,11 +695,11 @@
       <inputs>
         <tool>
           <name>ICCARM</name>
-          <file> 7 3 54 0 2</file>
+          <file> 8 12 7 0 2</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 7 3 54 0 2</file>
+          <file> 8 12 7 0 2</file>
         </tool>
       </inputs>
     </file>
@@ -690,13 +708,13 @@
       <outputs>
         <tool>
           <name>AARM</name>
-          <file> 35 13</file>
+          <file> 16 21</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>AARM</name>
-          <file> 52 5</file>
+          <file> 6 51</file>
         </tool>
       </inputs>
     </file>
@@ -705,21 +723,21 @@
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 36 20 14</file>
+          <file> 26 32 19</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 33</file>
+          <file> 17</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICCARM</name>
-          <file> 53 4 3 48 52 9 10 6 51 7 38 54 0 2</file>
+          <file> 9 52 12 54 6 5 53 3 50 8 40 7 0 2</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 4 3 48 52 9 10 51 7 38 54 0 2</file>
+          <file> 52 12 54 6 5 53 50 8 40 7 0 2</file>
         </tool>
       </inputs>
     </file>
@@ -728,30 +746,7 @@
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 37 17 25</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 23</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 53 4 3 48 52 9 10 6</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 4 3 48 52 9 10</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\C++\_cpp2.cpp</name>
-      <outputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 24 21 16</file>
+          <file> 22 28 38</file>
         </tool>
         <tool>
           <name>BICOMP</name>
@@ -761,11 +756,11 @@
       <inputs>
         <tool>
           <name>ICCARM</name>
-          <file> 4 3 48 52 9 10</file>
+          <file> 9 52 12 54 6 5 53 3</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 4 3 48 52 9 10</file>
+          <file> 52 12 54 6 5 53</file>
         </tool>
       </inputs>
     </file>
@@ -776,39 +771,41 @@
       <file>$PROJ_DIR$\languages.h</file>
       <file>$PROJ_DIR$\languages\lng_bg.h</file>
       <file>$PROJ_DIR$\languages\lng_en.h</file>
-      <file>$TOOLKIT_DIR$\include\Types.h</file>
-      <file>$TOOLKIT_DIR$\include\Lib_Clara.h</file>
-      <file>$TOOLKIT_DIR$\include\DYN_mac.asm</file>
       <file>$TOOLKIT_DIR$\deleaker\Lib_Clara_original.h</file>
-      <file>$TOOLKIT_DIR$\include\cfg_items.h</file>
       <file>$TOOLKIT_DIR$\include\1.xcl</file>
       <file>$TOOLKIT_DIR$\include\Colors.h</file>
-      <file>$TOOLKIT_DIR$\include\obsolete.h</file>
-      <file>$PROJ_DIR$\Release ES\List\conf_loader.s79</file>
-      <file>$PROJ_DIR$\Release ES\List\conf_loader.lst</file>
-      <file>$PROJ_DIR$\Release ES\List\E-switch_es.map</file>
-      <file>$PROJ_DIR$\Release ES\Obj\E-switch.pbd</file>
-      <file>$PROJ_DIR$\Release ES\List\main.lst</file>
-      <file>$PROJ_DIR$\Release ES\List\main.s79</file>
-      <file>$PROJ_DIR$\Release ES\List\_cpp2.lst</file>
-      <file>$PROJ_DIR$\Release ES\List\mem2.s79</file>
-      <file>$PROJ_DIR$\Release ES\Obj\mem2.pbi</file>
-      <file>$PROJ_DIR$\E-switch_es.elf</file>
-      <file>$PROJ_DIR$\Release ES\Obj\main.r79</file>
-      <file>$PROJ_DIR$\Release ES\List\config_data.s79</file>
-      <file>$PROJ_DIR$\Release ES\List\func.lst</file>
-      <file>$PROJ_DIR$\Release ES\Obj\_cpp2.r79</file>
-      <file>$PROJ_DIR$\Release ES\Obj\mem2.r79</file>
-      <file>$PROJ_DIR$\Release ES\List\mem2.lst</file>
-      <file>$PROJ_DIR$\Release ES\Obj\main.pbi</file>
-      <file>$PROJ_DIR$\Release ES\List\config_data.lst</file>
-      <file>$PROJ_DIR$\Release ES\List\_cpp2.s79</file>
-      <file>$PROJ_DIR$\Release ES\Obj\config_data.pbi</file>
-      <file>$PROJ_DIR$\Release ES\Obj\func.r79</file>
+      <file>$TOOLKIT_DIR$\include\DYN_tag.h</file>
+      <file>$PROJ_DIR$\config_data.h</file>
+      <file>$TOOLKIT_DIR$\include\cfg_items.h</file>
+      <file>$TOOLKIT_DIR$\deleaker\mem2.h</file>
+      <file>$TOOLKIT_DIR$\C++\_cpp2.cpp</file>
+      <file>$TOOLKIT_DIR$\lib\dl5tpainl8n.r79</file>
+      <file>$TOOLKIT_DIR$\include\Types.h</file>
       <file>$PROJ_DIR$\Release ES\Obj\_cpp2.pbi</file>
-      <file>$PROJ_DIR$\Release ES\Obj\conf_loader.r79</file>
-      <file>$PROJ_DIR$\Release ES\Obj\config_data.r79</file>
+      <file>$PROJ_DIR$\Release ES\List\main.s79</file>
+      <file>$PROJ_DIR$\Release ES\Obj\E-switch.pbd</file>
+      <file>$PROJ_DIR$\Release ES\List\config_data.s79</file>
+      <file>$PROJ_DIR$\E-switch_es.elf</file>
+      <file>$PROJ_DIR$\Release ES\List\main.lst</file>
+      <file>$PROJ_DIR$\Release ES\List\E-switch_es.map</file>
       <file>$PROJ_DIR$\Release ES\Obj\conf_loader.pbi</file>
+      <file>$PROJ_DIR$\Release ES\List\mem2.s79</file>
+      <file>$PROJ_DIR$\Release ES\List\_cpp2.lst</file>
+      <file>$PROJ_DIR$\Release ES\Obj\conf_loader.r79</file>
+      <file>$PROJ_DIR$\Release ES\List\mem2.lst</file>
+      <file>$PROJ_DIR$\Release ES\List\config_data.lst</file>
+      <file>$PROJ_DIR$\Release ES\Obj\config_data.pbi</file>
+      <file>$PROJ_DIR$\Release ES\List\conf_loader.s79</file>
+      <file>$PROJ_DIR$\Release ES\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Release ES\List\conf_loader.lst</file>
+      <file>$PROJ_DIR$\Release ES\Obj\main.r79</file>
+      <file>$PROJ_DIR$\Release ES\Obj\func.r79</file>
+      <file>$PROJ_DIR$\Release ES\Obj\mem2.pbi</file>
+      <file>$PROJ_DIR$\Release ES\Obj\_cpp2.r79</file>
+      <file>$PROJ_DIR$\Release ES\List\_cpp2.s79</file>
+      <file>$PROJ_DIR$\Release ES\Obj\config_data.r79</file>
+      <file>$PROJ_DIR$\Release ES\List\func.lst</file>
+      <file>$PROJ_DIR$\Release ES\Obj\mem2.r79</file>
       <file>$PROJ_DIR$\conf_loader.h</file>
       <file>$PROJ_DIR$\languages\lng_es.h</file>
       <file>$PROJ_DIR$\languages\lng_ru.h</file>
@@ -819,29 +816,50 @@
       <file>$TOOLKIT_DIR$\include\func.asm</file>
       <file>$PROJ_DIR$\main.cpp</file>
       <file>$TOOLKIT_DIR$\deleaker\mem2.cpp</file>
-      <file>$TOOLKIT_DIR$\include\DYN_ext.h</file>
-      <file>$TOOLKIT_DIR$\C++\_cpp2.cpp</file>
-      <file>$TOOLKIT_DIR$\lib\dl5tpainl8n.r79</file>
       <file>$TOOLKIT_DIR$\include\dir.h</file>
-      <file>$TOOLKIT_DIR$\include\DYN_tag.h</file>
-      <file>$TOOLKIT_DIR$\deleaker\mem2.h</file>
-      <file>$PROJ_DIR$\config_data.h</file>
+      <file>$TOOLKIT_DIR$\include\DYN_mac.asm</file>
+      <file>$TOOLKIT_DIR$\include\Lib_Clara.h</file>
+      <file>$TOOLKIT_DIR$\include\obsolete.h</file>
+      <file>$TOOLKIT_DIR$\include\DYN_ext.h</file>
     </outputs>
     <file>
       <name>[ROOT_NODE]</name>
       <outputs>
         <tool>
           <name>XLINK</name>
-          <file> 20 13</file>
+          <file> 17 19</file>
         </tool>
       </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\C++\_cpp2.cpp</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 33 34 22</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 13</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 50 12 52 6 5 51</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 50 12 52 6 5 51</file>
+        </tool>
+      </inputs>
     </file>
     <file>
       <name>$PROJ_DIR$\Release ES\Obj\E-switch.pbd</name>
       <inputs>
         <tool>
           <name>BILINK</name>
-          <file> 35 30 27 19</file>
+          <file> 20 26 28 32</file>
         </tool>
       </inputs>
     </file>
@@ -850,13 +868,13 @@
       <outputs>
         <tool>
           <name>XLINK</name>
-          <file> 13</file>
+          <file> 19</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>XLINK</name>
-          <file> 8 33 34 31 21 25 48</file>
+          <file> 4 23 35 31 30 37 11</file>
         </tool>
       </inputs>
     </file>
@@ -865,21 +883,21 @@
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 33 11 12</file>
+          <file> 23 27 29</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 35</file>
+          <file> 20</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICCARM</name>
-          <file> 51 4 3 46 50 9 10 6 49 7 36</file>
+          <file> 9 50 12 52 6 5 51 3 48 8 38</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 4 3 46 50 9 10 49 7 36</file>
+          <file> 50 12 52 6 5 51 48 8 38</file>
         </tool>
       </inputs>
     </file>
@@ -888,21 +906,21 @@
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 34 22 28</file>
+          <file> 35 16 25</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 30</file>
+          <file> 26</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICCARM</name>
-          <file> 7 3 52 0 37 2</file>
+          <file> 8 12 7 0 39 2</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 7 3 52 0 37</file>
+          <file> 8 12 7 0 39</file>
         </tool>
       </inputs>
     </file>
@@ -911,13 +929,13 @@
       <outputs>
         <tool>
           <name>AARM</name>
-          <file> 31 23</file>
+          <file> 31 36</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>AARM</name>
-          <file> 50 5</file>
+          <file> 6 49</file>
         </tool>
       </inputs>
     </file>
@@ -926,21 +944,21 @@
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 21 16 15</file>
+          <file> 30 14 18</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 27</file>
+          <file> 28</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICCARM</name>
-          <file> 51 4 3 46 50 9 10 6 49 7 36 52 0 37 2</file>
+          <file> 9 50 12 52 6 5 51 3 48 8 38 7 0 39 2</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 4 3 46 50 9 10 49 7 36 52 0 37</file>
+          <file> 50 12 52 6 5 51 48 8 38 7 0 39</file>
         </tool>
       </inputs>
     </file>
@@ -949,30 +967,7 @@
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 25 18 26</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 19</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 51 4 3 46 50 9 10 6</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 4 3 46 50 9 10</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\C++\_cpp2.cpp</name>
-      <outputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 24 29 17</file>
+          <file> 37 21 24</file>
         </tool>
         <tool>
           <name>BICOMP</name>
@@ -982,11 +977,11 @@
       <inputs>
         <tool>
           <name>ICCARM</name>
-          <file> 4 3 46 50 9 10</file>
+          <file> 9 50 12 52 6 5 51 3</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 4 3 46 50 9 10</file>
+          <file> 50 12 52 6 5 51</file>
         </tool>
       </inputs>
     </file>
@@ -997,39 +992,41 @@
       <file>$PROJ_DIR$\languages.h</file>
       <file>$PROJ_DIR$\languages\lng_bg.h</file>
       <file>$PROJ_DIR$\languages\lng_en.h</file>
-      <file>$TOOLKIT_DIR$\include\Types.h</file>
-      <file>$TOOLKIT_DIR$\include\Lib_Clara.h</file>
-      <file>$TOOLKIT_DIR$\include\DYN_mac.asm</file>
       <file>$TOOLKIT_DIR$\deleaker\Lib_Clara_original.h</file>
-      <file>$TOOLKIT_DIR$\include\cfg_items.h</file>
       <file>$TOOLKIT_DIR$\include\1.xcl</file>
       <file>$TOOLKIT_DIR$\include\Colors.h</file>
-      <file>$TOOLKIT_DIR$\include\obsolete.h</file>
-      <file>$PROJ_DIR$\Release RU\List\func.lst</file>
-      <file>$PROJ_DIR$\Release RU\Obj\main.r79</file>
-      <file>$PROJ_DIR$\Release RU\Obj\_cpp2.pbi</file>
-      <file>$PROJ_DIR$\Release RU\List\conf_loader.s79</file>
-      <file>$PROJ_DIR$\Release RU\Obj\E-switch.pbd</file>
-      <file>$PROJ_DIR$\Release RU\Obj\conf_loader.r79</file>
-      <file>$PROJ_DIR$\Release RU\List\conf_loader.lst</file>
-      <file>$PROJ_DIR$\E-switch.elf</file>
-      <file>$PROJ_DIR$\Release RU\List\config_data.s79</file>
-      <file>$PROJ_DIR$\Release RU\List\E-switch.map</file>
+      <file>$TOOLKIT_DIR$\include\DYN_tag.h</file>
+      <file>$PROJ_DIR$\config_data.h</file>
+      <file>$TOOLKIT_DIR$\include\cfg_items.h</file>
+      <file>$TOOLKIT_DIR$\deleaker\mem2.h</file>
+      <file>$TOOLKIT_DIR$\C++\_cpp2.cpp</file>
+      <file>$TOOLKIT_DIR$\lib\dl5tpainl8n.r79</file>
+      <file>$TOOLKIT_DIR$\include\Types.h</file>
+      <file>$PROJ_DIR$\Release RU\Obj\mem2.pbi</file>
       <file>$PROJ_DIR$\Release RU\List\mem2.lst</file>
-      <file>$PROJ_DIR$\Release RU\List\_cpp2.lst</file>
+      <file>$PROJ_DIR$\E-switch.elf</file>
+      <file>$PROJ_DIR$\Release RU\List\conf_loader.lst</file>
+      <file>$PROJ_DIR$\Release RU\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Release RU\Obj\func.r79</file>
+      <file>$PROJ_DIR$\Release RU\List\func.lst</file>
+      <file>$PROJ_DIR$\Release RU\Obj\E-switch.pbd</file>
+      <file>$PROJ_DIR$\Release RU\List\_cpp2.s79</file>
+      <file>$PROJ_DIR$\Release RU\List\main.s79</file>
+      <file>$PROJ_DIR$\Release RU\Obj\config_data.r79</file>
+      <file>$PROJ_DIR$\Release RU\Obj\_cpp2.pbi</file>
+      <file>$PROJ_DIR$\Release RU\List\E-switch.map</file>
+      <file>$PROJ_DIR$\Release RU\List\main.lst</file>
+      <file>$PROJ_DIR$\Release RU\List\conf_loader.s79</file>
+      <file>$PROJ_DIR$\Release RU\Obj\mem2.r79</file>
+      <file>$PROJ_DIR$\Release RU\Obj\conf_loader.r79</file>
+      <file>$PROJ_DIR$\Release RU\List\config_data.lst</file>
+      <file>$PROJ_DIR$\Release RU\List\config_data.s79</file>
+      <file>$PROJ_DIR$\Release RU\Obj\conf_loader.pbi</file>
       <file>$PROJ_DIR$\Release RU\List\mem2.s79</file>
       <file>$PROJ_DIR$\Release RU\Obj\_cpp2.r79</file>
-      <file>$PROJ_DIR$\Release RU\List\main.s79</file>
-      <file>$PROJ_DIR$\Release RU\Obj\conf_loader.pbi</file>
-      <file>$PROJ_DIR$\Release RU\Obj\mem2.r79</file>
-      <file>$PROJ_DIR$\Release RU\List\_cpp2.s79</file>
-      <file>$PROJ_DIR$\Release RU\List\config_data.lst</file>
-      <file>$PROJ_DIR$\Release RU\Obj\func.r79</file>
-      <file>$PROJ_DIR$\Release RU\Obj\mem2.pbi</file>
-      <file>$PROJ_DIR$\Release RU\Obj\main.pbi</file>
       <file>$PROJ_DIR$\Release RU\Obj\config_data.pbi</file>
-      <file>$PROJ_DIR$\Release RU\Obj\config_data.r79</file>
-      <file>$PROJ_DIR$\Release RU\List\main.lst</file>
+      <file>$PROJ_DIR$\Release RU\List\_cpp2.lst</file>
+      <file>$PROJ_DIR$\Release RU\Obj\main.r79</file>
       <file>$PROJ_DIR$\conf_loader.h</file>
       <file>$PROJ_DIR$\languages\lng_es.h</file>
       <file>$PROJ_DIR$\languages\lng_ru.h</file>
@@ -1040,29 +1037,41 @@
       <file>$TOOLKIT_DIR$\include\func.asm</file>
       <file>$PROJ_DIR$\main.cpp</file>
       <file>$TOOLKIT_DIR$\deleaker\mem2.cpp</file>
-      <file>$TOOLKIT_DIR$\include\DYN_ext.h</file>
-      <file>$TOOLKIT_DIR$\C++\_cpp2.cpp</file>
-      <file>$TOOLKIT_DIR$\lib\dl5tpainl8n.r79</file>
       <file>$TOOLKIT_DIR$\include\dir.h</file>
-      <file>$TOOLKIT_DIR$\include\DYN_tag.h</file>
-      <file>$TOOLKIT_DIR$\deleaker\mem2.h</file>
-      <file>$PROJ_DIR$\config_data.h</file>
+      <file>$TOOLKIT_DIR$\include\DYN_mac.asm</file>
+      <file>$TOOLKIT_DIR$\include\Lib_Clara.h</file>
+      <file>$TOOLKIT_DIR$\include\obsolete.h</file>
+      <file>$TOOLKIT_DIR$\include\DYN_ext.h</file>
     </outputs>
     <file>
       <name>[ROOT_NODE]</name>
       <outputs>
         <tool>
           <name>XLINK</name>
-          <file> 18 20</file>
+          <file> 15 25</file>
         </tool>
       </outputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\Release RU\Obj\E-switch.pbd</name>
+      <name>$PROJ_DIR$\..\C++\_cpp2.cpp</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 34 21 36</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 24</file>
+        </tool>
+      </outputs>
       <inputs>
         <tool>
-          <name>BILINK</name>
-          <file> 26 33 32 31</file>
+          <name>ICCARM</name>
+          <file> 50 12 52 6 5 51</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 50 12 52 6 5 51</file>
         </tool>
       </inputs>
     </file>
@@ -1071,13 +1080,22 @@
       <outputs>
         <tool>
           <name>XLINK</name>
-          <file> 20</file>
+          <file> 25</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>XLINK</name>
-          <file> 8 16 34 30 12 27 48</file>
+          <file> 4 29 23 18 37 28 11</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Release RU\Obj\E-switch.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 32 35 17 13</file>
         </tool>
       </inputs>
     </file>
@@ -1086,68 +1104,7 @@
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 16 14 17</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 26</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 51 4 3 46 50 9 10 6 49 7 36</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 4 3 46 50 9 10 49 7 36</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\config_data.c</name>
-      <outputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 34 19 29</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 33</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 7 3 52 0 38</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 7 3 52 0 38</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\include\func.asm</name>
-      <outputs>
-        <tool>
-          <name>AARM</name>
-          <file> 30 11</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>AARM</name>
-          <file> 50 5</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\main.cpp</name>
-      <outputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 12 25 35</file>
+          <file> 29 27 16</file>
         </tool>
         <tool>
           <name>BICOMP</name>
@@ -1157,11 +1114,72 @@
       <inputs>
         <tool>
           <name>ICCARM</name>
-          <file> 51 4 3 46 50 9 10 6 49 7 36 52 0 38</file>
+          <file> 9 50 12 52 6 5 51 3 48 8 38</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 4 3 46 50 9 10 49 7 36 52 0 38</file>
+          <file> 50 12 52 6 5 51 48 8 38</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\config_data.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 23 31 30</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 35</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 8 12 7 0 40</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 8 12 7 0 40</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\include\func.asm</name>
+      <outputs>
+        <tool>
+          <name>AARM</name>
+          <file> 18 19</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>AARM</name>
+          <file> 6 49</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\main.cpp</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 37 22 26</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 9 50 12 52 6 5 51 3 48 8 38 7 0 40</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 50 12 52 6 5 51 48 8 38 7 0 40</file>
         </tool>
       </inputs>
     </file>
@@ -1170,30 +1188,7 @@
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 27 23 21</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 31</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 51 4 3 46 50 9 10 6</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 4 3 46 50 9 10</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\C++\_cpp2.cpp</name>
-      <outputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 24 28 22</file>
+          <file> 28 33 14</file>
         </tool>
         <tool>
           <name>BICOMP</name>
@@ -1203,11 +1198,11 @@
       <inputs>
         <tool>
           <name>ICCARM</name>
-          <file> 4 3 46 50 9 10</file>
+          <file> 9 50 12 52 6 5 51 3</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 4 3 46 50 9 10</file>
+          <file> 50 12 52 6 5 51</file>
         </tool>
       </inputs>
     </file>
@@ -1218,40 +1213,42 @@
       <file>$PROJ_DIR$\languages.h</file>
       <file>$PROJ_DIR$\languages\lng_bg.h</file>
       <file>$PROJ_DIR$\languages\lng_en.h</file>
-      <file>$TOOLKIT_DIR$\include\Types.h</file>
-      <file>$TOOLKIT_DIR$\include\Lib_Clara.h</file>
-      <file>$TOOLKIT_DIR$\include\DYN_mac.asm</file>
       <file>$TOOLKIT_DIR$\deleaker\Lib_Clara_original.h</file>
-      <file>$TOOLKIT_DIR$\include\cfg_items.h</file>
       <file>$TOOLKIT_DIR$\include\1.xcl</file>
       <file>$TOOLKIT_DIR$\include\Colors.h</file>
-      <file>$TOOLKIT_DIR$\include\obsolete.h</file>
-      <file>$PROJ_DIR$\Release TR\List\config_data.lst</file>
-      <file>$PROJ_DIR$\Release TR\List\E-switch_tr.map</file>
-      <file>$PROJ_DIR$\Release TR\Obj\config_data.r79</file>
-      <file>$PROJ_DIR$\Release TR\Exe\E-switch_en.elf</file>
-      <file>$PROJ_DIR$\Release TR\Obj\main.pbi</file>
-      <file>$PROJ_DIR$\Release TR\Obj\main.r79</file>
-      <file>$PROJ_DIR$\Release TR\Obj\config_data.pbi</file>
-      <file>$PROJ_DIR$\Release TR\List\main.lst</file>
-      <file>$PROJ_DIR$\Release TR\List\conf_loader.s79</file>
-      <file>$PROJ_DIR$\Release TR\List\main.s79</file>
-      <file>$PROJ_DIR$\Release TR\List\_cpp2.lst</file>
-      <file>$PROJ_DIR$\Release TR\List\_cpp2.s79</file>
-      <file>$PROJ_DIR$\Release TR\Obj\_cpp2.pbi</file>
+      <file>$TOOLKIT_DIR$\include\DYN_tag.h</file>
+      <file>$PROJ_DIR$\config_data.h</file>
+      <file>$TOOLKIT_DIR$\include\cfg_items.h</file>
+      <file>$TOOLKIT_DIR$\deleaker\mem2.h</file>
+      <file>$TOOLKIT_DIR$\C++\_cpp2.cpp</file>
+      <file>$TOOLKIT_DIR$\lib\dl5tpainl8n.r79</file>
+      <file>$TOOLKIT_DIR$\include\Types.h</file>
+      <file>$PROJ_DIR$\Release TR\List\mem2.lst</file>
       <file>$PROJ_DIR$\Release TR\List\conf_loader.lst</file>
       <file>$PROJ_DIR$\Release TR\Obj\E-switch.pbd</file>
-      <file>$PROJ_DIR$\Release TR\Obj\func.r79</file>
-      <file>$PROJ_DIR$\Release TR\Obj\_cpp2.r79</file>
+      <file>$PROJ_DIR$\Release TR\Exe\E-switch_en.elf</file>
       <file>$PROJ_DIR$\Release TR\List\func.lst</file>
-      <file>$PROJ_DIR$\Release TR\Obj\conf_loader.r79</file>
+      <file>$PROJ_DIR$\Release TR\Obj\func.r79</file>
+      <file>$PROJ_DIR$\Release TR\List\E-switch_tr.map</file>
       <file>$PROJ_DIR$\Release TR\Obj\conf_loader.pbi</file>
-      <file>$PROJ_DIR$\Release TR\Obj\mem2.r79</file>
-      <file>$PROJ_DIR$\Release TR\List\mem2.lst</file>
-      <file>$PROJ_DIR$\E-switch_tr.elf</file>
-      <file>$PROJ_DIR$\Release TR\List\mem2.s79</file>
-      <file>$PROJ_DIR$\Release TR\Obj\mem2.pbi</file>
+      <file>$PROJ_DIR$\Release TR\Obj\_cpp2.r79</file>
       <file>$PROJ_DIR$\Release TR\List\config_data.s79</file>
+      <file>$PROJ_DIR$\Release TR\List\mem2.s79</file>
+      <file>$PROJ_DIR$\Release TR\Obj\mem2.r79</file>
+      <file>$PROJ_DIR$\E-switch_tr.elf</file>
+      <file>$PROJ_DIR$\Release TR\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Release TR\Obj\conf_loader.r79</file>
+      <file>$PROJ_DIR$\Release TR\Obj\mem2.pbi</file>
+      <file>$PROJ_DIR$\Release TR\Obj\config_data.r79</file>
+      <file>$PROJ_DIR$\Release TR\Obj\_cpp2.pbi</file>
+      <file>$PROJ_DIR$\Release TR\List\_cpp2.s79</file>
+      <file>$PROJ_DIR$\Release TR\Obj\config_data.pbi</file>
+      <file>$PROJ_DIR$\Release TR\List\conf_loader.s79</file>
+      <file>$PROJ_DIR$\Release TR\List\main.lst</file>
+      <file>$PROJ_DIR$\Release TR\List\config_data.lst</file>
+      <file>$PROJ_DIR$\Release TR\Obj\main.r79</file>
+      <file>$PROJ_DIR$\Release TR\List\_cpp2.lst</file>
+      <file>$PROJ_DIR$\Release TR\List\main.s79</file>
       <file>$PROJ_DIR$\conf_loader.h</file>
       <file>$PROJ_DIR$\languages\lng_es.h</file>
       <file>$PROJ_DIR$\languages\lng_ru.h</file>
@@ -1262,62 +1259,27 @@
       <file>$TOOLKIT_DIR$\include\func.asm</file>
       <file>$PROJ_DIR$\main.cpp</file>
       <file>$TOOLKIT_DIR$\deleaker\mem2.cpp</file>
-      <file>$TOOLKIT_DIR$\include\DYN_ext.h</file>
-      <file>$TOOLKIT_DIR$\C++\_cpp2.cpp</file>
-      <file>$TOOLKIT_DIR$\lib\dl5tpainl8n.r79</file>
       <file>$TOOLKIT_DIR$\include\dir.h</file>
-      <file>$TOOLKIT_DIR$\include\DYN_tag.h</file>
-      <file>$TOOLKIT_DIR$\deleaker\mem2.h</file>
-      <file>$PROJ_DIR$\config_data.h</file>
+      <file>$TOOLKIT_DIR$\include\DYN_mac.asm</file>
+      <file>$TOOLKIT_DIR$\include\Lib_Clara.h</file>
+      <file>$TOOLKIT_DIR$\include\obsolete.h</file>
+      <file>$TOOLKIT_DIR$\include\DYN_ext.h</file>
     </outputs>
     <file>
       <name>[ROOT_NODE]</name>
       <outputs>
         <tool>
           <name>XLINK</name>
-          <file> 33 12</file>
+          <file> 25 19</file>
         </tool>
       </outputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\Release TR\Exe\E-switch_en.elf</name>
-      <inputs>
-        <tool>
-          <name>XLINK</name>
-          <file> 8 27 29 13 26 16 49</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\Release TR\Obj\E-switch.pbd</name>
-      <inputs>
-        <tool>
-          <name>BILINK</name>
-          <file> 30 17 15 35</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\E-switch_tr.elf</name>
-      <outputs>
-        <tool>
-          <name>XLINK</name>
-          <file> 12</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>XLINK</name>
-          <file> 8 29 13 26 16 31 49</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\conf_loader.cpp</name>
+      <name>$PROJ_DIR$\..\C++\_cpp2.cpp</name>
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 29 19 24</file>
+          <file> 21 31 37</file>
         </tool>
         <tool>
           <name>BICOMP</name>
@@ -1327,11 +1289,67 @@
       <inputs>
         <tool>
           <name>ICCARM</name>
-          <file> 52 4 3 47 51 9 10 6 50 7 37</file>
+          <file> 51 12 53 6 5 52</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 4 3 47 51 9 10 50 7 37</file>
+          <file> 51 12 53 6 5 52</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Release TR\Obj\E-switch.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 20 32 26 28</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Release TR\Exe\E-switch_en.elf</name>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 4 21 27 29 18 36 11</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\E-switch_tr.elf</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 19</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 4 27 29 18 36 24 11</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\conf_loader.cpp</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 27 33 14</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 9 51 12 53 6 5 52 3 49 8 39</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 51 12 53 6 5 52 49 8 39</file>
         </tool>
       </inputs>
     </file>
@@ -1340,21 +1358,21 @@
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 13 36 11</file>
+          <file> 29 22 35</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 17</file>
+          <file> 32</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICCARM</name>
-          <file> 7 3 53 0 40 2</file>
+          <file> 8 12 7 0 42 2</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 7 3 53 0 40</file>
+          <file> 8 12 7 0 42</file>
         </tool>
       </inputs>
     </file>
@@ -1363,13 +1381,13 @@
       <outputs>
         <tool>
           <name>AARM</name>
-          <file> 26 28</file>
+          <file> 18 17</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>AARM</name>
-          <file> 51 5</file>
+          <file> 6 50</file>
         </tool>
       </inputs>
     </file>
@@ -1378,21 +1396,21 @@
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 16 20 18</file>
+          <file> 36 38 34</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 15</file>
+          <file> 26</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICCARM</name>
-          <file> 52 4 3 47 51 9 10 6 50 7 37 53 0 40 2</file>
+          <file> 9 51 12 53 6 5 52 3 49 8 39 7 0 42 2</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 4 3 47 51 9 10 50 7 37 53 0 40</file>
+          <file> 51 12 53 6 5 52 49 8 39 7 0 42</file>
         </tool>
       </inputs>
     </file>
@@ -1401,44 +1419,21 @@
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 31 34 32</file>
+          <file> 24 23 13</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 35</file>
+          <file> 28</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICCARM</name>
-          <file> 52 4 3 47 51 9 10 6</file>
+          <file> 9 51 12 53 6 5 52 3</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 4 3 47 51 9 10</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\C++\_cpp2.cpp</name>
-      <outputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 27 22 21</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 23</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 4 3 47 51 9 10</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 4 3 47 51 9 10</file>
+          <file> 51 12 53 6 5 52</file>
         </tool>
       </inputs>
     </file>
@@ -1449,39 +1444,41 @@
       <file>$PROJ_DIR$\languages.h</file>
       <file>$PROJ_DIR$\languages\lng_bg.h</file>
       <file>$PROJ_DIR$\languages\lng_en.h</file>
-      <file>$TOOLKIT_DIR$\include\Types.h</file>
-      <file>$TOOLKIT_DIR$\include\Lib_Clara.h</file>
-      <file>$TOOLKIT_DIR$\include\DYN_mac.asm</file>
       <file>$TOOLKIT_DIR$\deleaker\Lib_Clara_original.h</file>
-      <file>$TOOLKIT_DIR$\include\cfg_items.h</file>
       <file>$TOOLKIT_DIR$\include\1.xcl</file>
       <file>$TOOLKIT_DIR$\include\Colors.h</file>
-      <file>$TOOLKIT_DIR$\include\obsolete.h</file>
+      <file>$TOOLKIT_DIR$\include\DYN_tag.h</file>
+      <file>$PROJ_DIR$\config_data.h</file>
+      <file>$TOOLKIT_DIR$\include\cfg_items.h</file>
+      <file>$TOOLKIT_DIR$\deleaker\mem2.h</file>
+      <file>$TOOLKIT_DIR$\C++\_cpp2.cpp</file>
+      <file>$TOOLKIT_DIR$\lib\dl5tpainl8n.r79</file>
+      <file>$TOOLKIT_DIR$\include\Types.h</file>
       <file>$PROJ_DIR$\Release UK\Obj\main.pbi</file>
-      <file>$PROJ_DIR$\Release UK\Obj\E-switch.pbd</file>
-      <file>$PROJ_DIR$\Release UK\List\main.lst</file>
-      <file>$PROJ_DIR$\Release UK\List\func.lst</file>
-      <file>$PROJ_DIR$\Release UK\Obj\conf_loader.r79</file>
-      <file>$PROJ_DIR$\Release UK\List\config_data.lst</file>
-      <file>$PROJ_DIR$\Release UK\Obj\_cpp2.r79</file>
-      <file>$PROJ_DIR$\Release UK\List\main.s79</file>
       <file>$PROJ_DIR$\Release UK\List\E-switch_uk.map</file>
-      <file>$PROJ_DIR$\Release UK\List\_cpp2.lst</file>
-      <file>$PROJ_DIR$\Release UK\Obj\config_data.r79</file>
-      <file>$PROJ_DIR$\Release UK\Obj\config_data.pbi</file>
-      <file>$PROJ_DIR$\Release UK\List\conf_loader.s79</file>
-      <file>$PROJ_DIR$\Release UK\Obj\main.r79</file>
-      <file>$PROJ_DIR$\Release UK\List\conf_loader.lst</file>
-      <file>$PROJ_DIR$\Release UK\List\mem2.s79</file>
-      <file>$PROJ_DIR$\Release UK\Obj\conf_loader.pbi</file>
-      <file>$PROJ_DIR$\Release UK\Obj\mem2.r79</file>
-      <file>$PROJ_DIR$\Release UK\List\mem2.lst</file>
-      <file>$PROJ_DIR$\Release UK\Obj\_cpp2.pbi</file>
-      <file>$PROJ_DIR$\Release UK\Obj\mem2.pbi</file>
-      <file>$PROJ_DIR$\Release UK\Obj\func.r79</file>
+      <file>$PROJ_DIR$\Release UK\List\func.lst</file>
       <file>$PROJ_DIR$\Release UK\List\_cpp2.s79</file>
+      <file>$PROJ_DIR$\Release UK\Obj\E-switch.pbd</file>
+      <file>$PROJ_DIR$\Release UK\List\config_data.lst</file>
+      <file>$PROJ_DIR$\Release UK\List\main.s79</file>
+      <file>$PROJ_DIR$\Release UK\List\_cpp2.lst</file>
+      <file>$PROJ_DIR$\Release UK\Obj\conf_loader.r79</file>
+      <file>$PROJ_DIR$\Release UK\List\main.lst</file>
+      <file>$PROJ_DIR$\Release UK\Obj\_cpp2.r79</file>
+      <file>$PROJ_DIR$\Release UK\List\mem2.lst</file>
+      <file>$PROJ_DIR$\Release UK\List\conf_loader.lst</file>
+      <file>$PROJ_DIR$\Release UK\Obj\config_data.pbi</file>
+      <file>$PROJ_DIR$\Release UK\Obj\config_data.r79</file>
+      <file>$PROJ_DIR$\Release UK\Obj\mem2.pbi</file>
+      <file>$PROJ_DIR$\Release UK\Obj\mem2.r79</file>
       <file>$PROJ_DIR$\E-switch_uk.elf</file>
+      <file>$PROJ_DIR$\Release UK\Obj\conf_loader.pbi</file>
       <file>$PROJ_DIR$\Release UK\List\config_data.s79</file>
+      <file>$PROJ_DIR$\Release UK\Obj\func.r79</file>
+      <file>$PROJ_DIR$\Release UK\Obj\main.r79</file>
+      <file>$PROJ_DIR$\Release UK\Obj\_cpp2.pbi</file>
+      <file>$PROJ_DIR$\Release UK\List\conf_loader.s79</file>
+      <file>$PROJ_DIR$\Release UK\List\mem2.s79</file>
       <file>$PROJ_DIR$\conf_loader.h</file>
       <file>$PROJ_DIR$\languages\lng_es.h</file>
       <file>$PROJ_DIR$\languages\lng_ru.h</file>
@@ -1492,29 +1489,50 @@
       <file>$TOOLKIT_DIR$\include\func.asm</file>
       <file>$PROJ_DIR$\main.cpp</file>
       <file>$TOOLKIT_DIR$\deleaker\mem2.cpp</file>
-      <file>$TOOLKIT_DIR$\include\DYN_ext.h</file>
-      <file>$TOOLKIT_DIR$\C++\_cpp2.cpp</file>
-      <file>$TOOLKIT_DIR$\lib\dl5tpainl8n.r79</file>
       <file>$TOOLKIT_DIR$\include\dir.h</file>
-      <file>$TOOLKIT_DIR$\include\DYN_tag.h</file>
-      <file>$TOOLKIT_DIR$\deleaker\mem2.h</file>
-      <file>$PROJ_DIR$\config_data.h</file>
+      <file>$TOOLKIT_DIR$\include\DYN_mac.asm</file>
+      <file>$TOOLKIT_DIR$\include\Lib_Clara.h</file>
+      <file>$TOOLKIT_DIR$\include\obsolete.h</file>
+      <file>$TOOLKIT_DIR$\include\DYN_ext.h</file>
     </outputs>
     <file>
       <name>[ROOT_NODE]</name>
       <outputs>
         <tool>
           <name>XLINK</name>
-          <file> 34 19</file>
+          <file> 30 14</file>
         </tool>
       </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\C++\_cpp2.cpp</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 23 16 20</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 35</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 50 12 52 6 5 51</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 50 12 52 6 5 51</file>
+        </tool>
+      </inputs>
     </file>
     <file>
       <name>$PROJ_DIR$\Release UK\Obj\E-switch.pbd</name>
       <inputs>
         <tool>
           <name>BILINK</name>
-          <file> 27 22 11 31</file>
+          <file> 31 26 13 28</file>
         </tool>
       </inputs>
     </file>
@@ -1523,13 +1541,13 @@
       <outputs>
         <tool>
           <name>XLINK</name>
-          <file> 19</file>
+          <file> 14</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>XLINK</name>
-          <file> 8 15 21 32 24 28 48</file>
+          <file> 4 21 27 33 34 29 11</file>
         </tool>
       </inputs>
     </file>
@@ -1538,91 +1556,7 @@
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 15 23 25</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 27</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 51 4 3 46 50 9 10 6 49 7 36</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 4 3 46 50 9 10 49 7 36</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\config_data.c</name>
-      <outputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 21 35 16</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 22</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 7 3 52 0 40 2</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 7 3 52 0 40</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\include\func.asm</name>
-      <outputs>
-        <tool>
-          <name>AARM</name>
-          <file> 32 14</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>AARM</name>
-          <file> 50 5</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\main.cpp</name>
-      <outputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 24 18 13</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 11</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 51 4 3 46 50 9 10 6 49 7 36 52 0 40 2</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 4 3 46 50 9 10 49 7 36 52 0 40</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\deleaker\mem2.cpp</name>
-      <outputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 28 26 29</file>
+          <file> 21 36 25</file>
         </tool>
         <tool>
           <name>BICOMP</name>
@@ -1632,34 +1566,95 @@
       <inputs>
         <tool>
           <name>ICCARM</name>
-          <file> 51 4 3 46 50 9 10 6</file>
+          <file> 9 50 12 52 6 5 51 3 48 8 38</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 4 3 46 50 9 10</file>
+          <file> 50 12 52 6 5 51 48 8 38</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\C++\_cpp2.cpp</name>
+      <name>$PROJ_DIR$\config_data.c</name>
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 17 33 20</file>
+          <file> 27 32 18</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 30</file>
+          <file> 26</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICCARM</name>
-          <file> 4 3 46 50 9 10</file>
+          <file> 8 12 7 0 42 2</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 4 3 46 50 9 10</file>
+          <file> 8 12 7 0 42</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\include\func.asm</name>
+      <outputs>
+        <tool>
+          <name>AARM</name>
+          <file> 33 15</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>AARM</name>
+          <file> 6 49</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\main.cpp</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 34 19 22</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 13</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 9 50 12 52 6 5 51 3 48 8 38 7 0 42 2</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 50 12 52 6 5 51 48 8 38 7 0 42</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\deleaker\mem2.cpp</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 29 37 24</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 28</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 9 50 12 52 6 5 51 3</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 50 12 52 6 5 51</file>
         </tool>
       </inputs>
     </file>
