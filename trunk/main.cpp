@@ -7,7 +7,7 @@
 
 #define ELF_BCFG_CONFIG_EVENT 994
 
-#define ELF_VERSION "2.0"
+#define ELF_VERSION "2.0.1"
 
 /* ----------- Прототипы функций ----------- */
 int KeySwitch (int, int, int, LPARAM, DISP_OBJ*);
@@ -304,7 +304,7 @@ void CloseDesktop (int n) // Закрытие рабочего стола
         e = true;
   }
   if (e == true) // Если найдены ошибки
-    MessageBox(EMPTY_TEXTID, STR(LNG_DESKTOP_CLOSE_ERROR), NOIMAGE, 1, 5000, ESBook);
+    MessageBox(EMPTY_TEXTID, STR(LNG_DESKTOP_CLOSE_ERROR), NOIMAGE, 1, 5000, 0);
 }
 
 void RunDesktop (int n) // Запуск рабочего стола
@@ -322,7 +322,7 @@ void RunDesktop (int n) // Запуск рабочего стола
   DISP_OBJ* RedrawGUI = GUIObject_GetDispObject(SBY_GetStatusIndication(Find_StandbyBook()));
   DispObject_InvalidateRect(RedrawGUI, 0);
   if (e == true) // Если найдены ошибки
-    MessageBox(EMPTY_TEXTID, STR(LNG_DESKTOP_RUN_ERROR), NOIMAGE, 1, 5000, ESBook);
+    MessageBox(EMPTY_TEXTID, STR(LNG_DESKTOP_RUN_ERROR), NOIMAGE, 1, 5000, 0);
 }
 
 void OnTimerRunDesktop (u16 timerID, LPARAM n) // Отложенный запуск рабочего стола
@@ -339,7 +339,7 @@ bool CheckDesktop (int i) // Выполнение проверок и запуска/закрыия рабочих столо
     ActiveDesktop = i;
     if (BCFG_21_WallWhenSwitch == 1) // Установка обоев
       if ((SetWallpaper (Desktops[i].Wallpaper)) != 0)
-        MessageBox(EMPTY_TEXTID, STR(LNG_WALLPAPER_SET_ERROR), NOIMAGE, 1, 5000, ESBook);
+        MessageBox(EMPTY_TEXTID, STR(LNG_WALLPAPER_SET_ERROR), NOIMAGE, 1, 5000, 0);
 
     return true;
   }
@@ -370,7 +370,7 @@ void NextDesktop ()// Переключить на следующий рабочий стол
     AfterDesktopSwitch ();
   }
   else
-    MessageBox(EMPTY_TEXTID, STR(LNG_ALL_ACTS_DISABLED), NOIMAGE, 1, 5000, ESBook);
+    MessageBox(EMPTY_TEXTID, STR(LNG_ALL_ACTS_DISABLED), NOIMAGE, 1, 5000, 0);
 }
 
 void PreviousDesktop () // Переключить на предыдущий рабочий стол
@@ -390,7 +390,7 @@ void PreviousDesktop () // Переключить на предыдущий рабочий стол
     AfterDesktopSwitch ();
   }
   else
-    MessageBox(EMPTY_TEXTID, STR(LNG_ALL_ACTS_DISABLED), NOIMAGE, 1, 5000, ESBook);
+    MessageBox(EMPTY_TEXTID, STR(LNG_ALL_ACTS_DISABLED), NOIMAGE, 1, 5000, 0);
 }
 
 int KeySwitch (int key, int r1 , int mode, LPARAM lparam, DISP_OBJ* dispobj) // Функиця переключающая столы по клавише
@@ -420,7 +420,7 @@ int RepeatELF (int key, int r1 , int mode, LPARAM lparam, DISP_OBJ* dispobj) // 
     if (!isKeylocked() && (BCFG_Settings_OnlyInStandBy ? IsOnStandby() : 1))
       if ((ActiveDesktop != -1) && (Desktops[ActiveDesktop].ELFs[4].Showing == 1))
         if (RunELF(Desktops[ActiveDesktop].ELFs[4]) != 0)
-            MessageBox(EMPTY_TEXTID, STR(LNG_ERROR), NOIMAGE, 1, 5000, ESBook);
+            MessageBox(EMPTY_TEXTID, STR(LNG_ERROR), NOIMAGE, 1, 5000, 0);
   
   return 0;
 }
@@ -513,7 +513,7 @@ int main ()
 {
   if (FindBookEx(BookToFind, (int*)"E-switch")) // Проверка на запущенность
   {
-    MessageBox(EMPTY_TEXTID, STR(LNG_ALREADY_RUNNED), NOIMAGE, 1, 5000, ESBook);
+    MessageBox(EMPTY_TEXTID, STR(LNG_ALREADY_RUNNED), NOIMAGE, 1, 5000, 0);
     SUBPROC(elf_exit);
     
     return 0;
