@@ -152,18 +152,24 @@
     extern const int BCFG_Settings_Keys_RepeatActiveELF_KeyMode;
   /* ----------------------------------------- */
   /* -------------- Смена обоев -------------- */
-    extern const int BCFG_21_WallWhenSwitch;
+    extern const int BCFG_22_WallWhenSwitch;
     /* ----------------- Обои ------------------ */
-      extern const wchar_t BCFG_211_Wall1[201];
-      extern const wchar_t BCFG_211_Wall2[201];
-      extern const wchar_t BCFG_211_Wall3[201];
-      extern const wchar_t BCFG_211_Wall4[201];
-      extern const wchar_t BCFG_211_Wall5[201];
+      extern const wchar_t BCFG_221_Wall1[201];
+      extern const wchar_t BCFG_221_Wall2[201];
+      extern const wchar_t BCFG_221_Wall3[201];
+      extern const wchar_t BCFG_221_Wall4[201];
+      extern const wchar_t BCFG_221_Wall5[201];
     /* ----------------------------------------- */
   /* ----------------------------------------- */
-  /* ---------------- Вибрация --------------- */
-    extern const int BCFG_Settings_VibrateWhenSwitch;
-    extern const signed int BCFG_Settings_VibrationTime;
+  /* ---------------- Индикация -------------- */
+    /* ---------------- Вибрация --------------- */
+      extern const int BCFG_Settings_VibrateWhenSwitch;
+      extern const signed int BCFG_Settings_VibrationTime;
+    /* ----------------------------------------- */
+    /* ------------------ Звук ----------------- */
+      extern const int BCFG_SoundWhenSwitch;
+      extern const wchar_t BCFG_SoundPath[201];
+    /* ----------------------------------------- */
   /* ----------------------------------------- */
 /* ----------------------------------------- */
 

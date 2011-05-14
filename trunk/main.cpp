@@ -7,7 +7,7 @@
 
 #define ELF_BCFG_CONFIG_EVENT 994
 
-#define ELF_VERSION "2.0.1"
+#define ELF_VERSION "2.0.2"
 
 /* ----------- Прототипы функций ----------- */
 int KeySwitch (int, int, int, LPARAM, DISP_OBJ*);
@@ -42,6 +42,7 @@ typedef struct
 
 DESKTOP Desktops[5];
 int ActiveDesktop = -1;
+u16 timer;
 /* ----------------------------------------- */
 
 int IsOnStandby () // Проверка StandBy
@@ -105,11 +106,10 @@ void LoadLastState () // Загрузка состояния
       char* buf = new char[stat.st_size+1];
       w_fread(f, buf, stat.st_size);
       w_fclose(f);
-      char* adstr = new char[1];
+      char* adstr = new char[0];
       adstr = manifest_GetParam(buf, "[ActiveDesktop]", 0);
       int adint = adstr[0] - 0x30;
       delete(buf);
-      delete(adstr);
       if ((adint >= 0) && (adint <= 4))
         ActiveDesktop = adint;
     }
@@ -224,25 +224,12 @@ BOOK* CreateESBook ()
 
 int SetWallpaper (const wchar_t* fullpath) // Установка указанных обоев // Я бы сочинил про эту многострадальную функцию стихотворение, но не умею
 {
-  if (!FileExist(fullpath))
-  {
-    wchar_t path[201];
-    wchar_t fname[201];
-    int len = wstrlen (fullpath);
-    int pos = len;
-    int i, j = 0;
-    
-    while ((fullpath[pos] != '/') && (pos >= 0))
-      pos--;
-    for (i = 0; i <= pos-1; i++)
-      path[i] = fullpath[i];
-    path[pos] = '\0';
-    for (i = pos+1; i <= len; i++)
-    {
-      fname[j] = fullpath[i];
-      j++;
-    }
-    fname[j+1] = '\0';
+  if (FileExist(fullpath))
+  {  
+    wchar_t* path = new wchar_t[201];
+    wstrcpy (path, fullpath);
+    wchar_t* fname = wstrrchr (path, '/') + 1;
+    *wstrrchr (path, '/') = 0;
     
     if ((StandbyBackground_SetImage (3, 0, 0, path, fname, 0)) != 0)
       return 2;
@@ -328,6 +315,7 @@ void RunDesktop (int n) // Запуск рабочего стола
 void OnTimerRunDesktop (u16 timerID, LPARAM n) // Отложенный запуск рабочего стола
 {
   RunDesktop(n);
+  Timer_Kill(&timer);
 }
 
 bool CheckDesktop (int i) // Выполнение проверок и запуска/закрыия рабочих столов
@@ -335,9 +323,9 @@ bool CheckDesktop (int i) // Выполнение проверок и запуска/закрыия рабочих столо
   if (Desktops[i].Showing == 1)
   {
     CloseDesktop (ActiveDesktop); // Закрытие рабочего стола
-    Timer_Set(200, OnTimerRunDesktop, i); // Отложенный запуск рабочего стола
+    timer = Timer_Set(200, OnTimerRunDesktop, i); // Отложенный запуск рабочего стола
     ActiveDesktop = i;
-    if (BCFG_21_WallWhenSwitch == 1) // Установка обоев
+    if (BCFG_22_WallWhenSwitch == 1) // Установка обоев
       if ((SetWallpaper (Desktops[i].Wallpaper)) != 0)
         MessageBox(EMPTY_TEXTID, STR(LNG_WALLPAPER_SET_ERROR), NOIMAGE, 1, 5000, 0);
 
@@ -347,10 +335,35 @@ bool CheckDesktop (int i) // Выполнение проверок и запуска/закрыия рабочих столо
   return false;
 }
 
+void VibrationNotify ()
+{
+  AudioControl_Vibrate(*GetAudioControlPtr(), BCFG_Settings_VibrationTime, 0, BCFG_Settings_VibrationTime);
+}
+
+int SoundNotify ()
+{
+  if (FileExist(BCFG_SoundPath))
+  {
+    wchar_t* path = new wchar_t[201];
+    wstrcpy (path, BCFG_SoundPath);
+    wchar_t* fname = wstrrchr (path, '/') + 1;
+    *wstrrchr (path, '/') = 0;
+    if (PlayFileV (path, fname, 100) == 0)
+      return 2;
+  }
+  else
+    return 1;
+  
+  return 0;
+}
+
 void AfterDesktopSwitch () // Функция выполняемая после переключения столов по клавише
 {
   if (BCFG_Settings_VibrateWhenSwitch)
-    AudioControl_Vibrate(*GetAudioControlPtr(), BCFG_Settings_VibrationTime, 0, BCFG_Settings_VibrationTime);
+    VibrationNotify ();
+  if (BCFG_SoundWhenSwitch)
+    if (SoundNotify () != 0)
+      MessageBox(EMPTY_TEXTID, STR(LNG_SOUND_PLAY_ERROR), NOIMAGE, 1, 5000, 0);
 }
 
 void NextDesktop ()// Переключить на следующий рабочий стол
@@ -444,7 +457,7 @@ void RunFirstDesktop () // Запуск первого стола из списка
     }
   }
   if (ActiveDesktop != -1)
-    Timer_Set(200, OnTimerRunDesktop, i);
+    timer = Timer_Set(200, OnTimerRunDesktop, i);
 }
 
 void InitVariables () // Инициализация переменных
@@ -490,9 +503,9 @@ void InitVariables () // Инициализация переменных
       Desktops[i].Showing = 1;
   }
   
-  if (BCFG_21_WallWhenSwitch) // Обои водостойкие
+  if (BCFG_22_WallWhenSwitch) // Обои водостойкие
   {
-    const wchar_t* BCFG_WallArray[5] = {BCFG_211_Wall1, BCFG_211_Wall2, BCFG_211_Wall3, BCFG_211_Wall4, BCFG_211_Wall5};
+    const wchar_t* BCFG_WallArray[5] = {BCFG_221_Wall1, BCFG_221_Wall2, BCFG_221_Wall3, BCFG_221_Wall4, BCFG_221_Wall5};
     for (i = 0; i < 5; i++)
       Desktops[i].Wallpaper = BCFG_WallArray[i];
   }

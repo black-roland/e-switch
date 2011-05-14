@@ -317,7 +317,7 @@ __root const CFG_HDR cfghdr2 = {CFG_LEVEL, LNG_SETTINGS, 1, 0};
   __root const int BCFG_Settings_OnPlayerStart = 0;
   __root const CFG_CBOX_ITEM cfgRadioBtn52[6] = {LNG_DISABLED, LNG_ELF " 1", LNG_ELF " 2", LNG_ELF " 3", LNG_ELF " 4", LNG_ELF " 5"};
   /* ----------------- Клавиши ---------------- */
-  __root const CFG_HDR cfghdr37 = {CFG_LEVEL, LNG_KEYS, 2, 0};
+  __root const CFG_HDR cfghdr21 = {CFG_LEVEL, LNG_KEYS, 2, 0};
     __root const CFG_HDR cfghdr40 = {CFG_KEYCODE, LNG_FORWARD_KEY, 0, 0};
     __root const int BCFG_Settings_Keys_ShiftForward_KeyCode = 11;
     __root const int BCFG_Settings_Keys_ShiftForward_KeyMode = 1;
@@ -327,35 +327,47 @@ __root const CFG_HDR cfghdr2 = {CFG_LEVEL, LNG_SETTINGS, 1, 0};
     __root const CFG_HDR cfghdr35 = {CFG_KEYCODE, LNG_REPEAT_KEY, 0, 0};
     __root const int BCFG_Settings_Keys_RepeatActiveELF_KeyCode = 5;
     __root const int BCFG_Settings_Keys_RepeatActiveELF_KeyMode = 1;
-  __root const CFG_HDR cfghdr38 = {CFG_LEVEL, "", 0, 0};
-  /* ----------------------------------------- */
-  /* -------------- Смена обоев -------------- */
-  __root const CFG_HDR cfghdr21 = {CFG_LEVEL, LNG_WALL_CHANGE, 2, 0};
-    __root const CFG_HDR cfghdr21A = {CFG_CHECKBOX, LNG_WALL_WHEN_SW, 0, 0}; 
-    __root const int BCFG_21_WallWhenSwitch = 0;
-    /* ----------------- Обои ------------------ */
-    __root const CFG_HDR cfghdr211 = {CFG_LEVEL, LNG_WALLPAPERS, 2, 0};
-      __root const CFG_HDR cfghdr211A = {CFG_UTF16_STRING, LNG_DESKTOP " 1", 0, 200};
-      __root const wchar_t BCFG_211_Wall1[201] = L"";
-      __root const CFG_HDR cfghdr211B = {CFG_UTF16_STRING, LNG_DESKTOP " 2", 0, 200};
-      __root const wchar_t BCFG_211_Wall2[201] = L"";
-      __root const CFG_HDR cfghdr211C = {CFG_UTF16_STRING, LNG_DESKTOP " 3", 0, 200};
-      __root const wchar_t BCFG_211_Wall3[201] = L"";
-      __root const CFG_HDR cfghdr211D = {CFG_UTF16_STRING, LNG_DESKTOP " 4", 0, 200};
-      __root const wchar_t BCFG_211_Wall4[201] = L"";
-      __root const CFG_HDR cfghdr211E = {CFG_UTF16_STRING, LNG_DESKTOP " 5", 0, 200};
-      __root const wchar_t BCFG_211_Wall5[201] = L"";
-    __root const CFG_HDR cfghdr211x = {CFG_LEVEL, "", 0, 0};
-    /* ----------------------------------------- */
   __root const CFG_HDR cfghdr21x = {CFG_LEVEL, "", 0, 0};
   /* ----------------------------------------- */
-  /* ---------------- Вибрация --------------- */
-  __root const CFG_HDR cfghdr22 = {CFG_LEVEL, LNG_VIBRATION, 2, 0};
-    __root const CFG_HDR cfghdr22A = {CFG_CHECKBOX, LNG_VIBRATE, 0, 0}; 
-    __root const int BCFG_Settings_VibrateWhenSwitch = 0;
-    __root const CFG_HDR cfghdr22B = {CFG_INT, LNG_VIBRA_TIME, 50, 1000};
-    __root const signed int BCFG_Settings_VibrationTime = 500;
+  /* -------------- Смена обоев -------------- */
+  __root const CFG_HDR cfghdr22 = {CFG_LEVEL, LNG_WALL_CHANGE, 2, 0};
+    __root const CFG_HDR cfghdr22A = {CFG_CHECKBOX, LNG_WALL_WHEN_SW, 0, 0}; 
+    __root const int BCFG_22_WallWhenSwitch = 0;
+    /* ----------------- Обои ------------------ */
+    __root const CFG_HDR cfghdr221 = {CFG_LEVEL, LNG_WALLPAPERS, 3, 0};
+      __root const CFG_HDR cfghdr221A = {CFG_UTF16_STRING, LNG_DESKTOP " 1", 0, 200};
+      __root const wchar_t BCFG_221_Wall1[201] = L"";
+      __root const CFG_HDR cfghdr221B = {CFG_UTF16_STRING, LNG_DESKTOP " 2", 0, 200};
+      __root const wchar_t BCFG_221_Wall2[201] = L"";
+      __root const CFG_HDR cfghdr221C = {CFG_UTF16_STRING, LNG_DESKTOP " 3", 0, 200};
+      __root const wchar_t BCFG_221_Wall3[201] = L"";
+      __root const CFG_HDR cfghdr221D = {CFG_UTF16_STRING, LNG_DESKTOP " 4", 0, 200};
+      __root const wchar_t BCFG_221_Wall4[201] = L"";
+      __root const CFG_HDR cfghdr221E = {CFG_UTF16_STRING, LNG_DESKTOP " 5", 0, 200};
+      __root const wchar_t BCFG_221_Wall5[201] = L"";
+    __root const CFG_HDR cfghdr221x = {CFG_LEVEL, "", 0, 0};
+    /* ----------------------------------------- */
   __root const CFG_HDR cfghdr22x = {CFG_LEVEL, "", 0, 0};
+  /* ----------------------------------------- */
+  /* ---------------- Индикация -------------- */
+  __root const CFG_HDR cfghdr23 = {CFG_LEVEL, LNG_INDICATION, 2, 0};
+    /* ---------------- Вибрация --------------- */
+    __root const CFG_HDR cfghdr231 = {CFG_LEVEL, LNG_VIBRATION, 3, 0};
+      __root const CFG_HDR cfghdr231A = {CFG_CHECKBOX, LNG_VIBRATE, 0, 0}; 
+      __root const int BCFG_Settings_VibrateWhenSwitch = 0;
+      __root const CFG_HDR cfghdr231B = {CFG_INT, LNG_VIBRA_TIME, 50, 1000};
+      __root const signed int BCFG_Settings_VibrationTime = 500;
+    __root const CFG_HDR cfghdr231x = {CFG_LEVEL, "", 0, 0};
+    /* ----------------------------------------- */
+    /* ------------------ Звук ----------------- */
+    __root const CFG_HDR cfghdr232 = {CFG_LEVEL, LNG_SOUND, 3, 0};
+      __root const CFG_HDR cfghdr232A = {CFG_CHECKBOX, LNG_SOUND_WHEN_SW, 0, 0}; 
+      __root const int BCFG_SoundWhenSwitch = 0;
+      __root const CFG_HDR cfghdr232B = {CFG_UTF16_STRING, LNG_SOUND_PATH, 0, 200};
+      __root const wchar_t BCFG_SoundPath[201] = L"";
+    __root const CFG_HDR cfghdr232x = {CFG_LEVEL, "", 0, 0};
+    /* ----------------------------------------- */
+  __root const CFG_HDR cfghdr23x = {CFG_LEVEL, "", 0, 0};
   /* ----------------------------------------- */
 __root const CFG_HDR cfghdr2x = {CFG_LEVEL, "", 0, 0};
 /* ----------------------------------------- */

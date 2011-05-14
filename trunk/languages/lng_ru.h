@@ -28,9 +28,16 @@
 #define LNG_WALL_CHANGE           "Смена обоев"
 #define LNG_WALL_WHEN_SW          "Смена обоев при переключении"
 #define LNG_WALLPAPERS            "Обои"
+#define LNG_AUTOSWITCH            "Автопереключение"
+#define LNG_ENABLEAUTOSWITCH      "Включить автоперекл."
+#define LNG_TIME_SEC              "Время (сек)"
+#define LNG_INDICATION            "Индикация"
 #define LNG_VIBRATION             "Вибрация"
 #define LNG_VIBRATE               "Вибр. при переключении"
 #define LNG_VIBRA_TIME            "Время вибрации (мс)"
+#define LNG_SOUND                 "Звук"
+#define LNG_SOUND_WHEN_SW         "Звук при переключении"
+#define LNG_SOUND_PATH            "Путь к звуку"
 /* ----------------------------------------- */
 
 /* ----------- Messages/Сообщения ---------- */
@@ -39,6 +46,7 @@
 #define LNG_DESKTOP_CLOSE_ERROR   "Ошибка закрытия рабочего стола"
 #define LNG_DESKTOP_RUN_ERROR     "Ошибка запуска рабочего стола"
 #define LNG_WALLPAPER_SET_ERROR   "Ошибка смены обоев"
+#define LNG_SOUND_PLAY_ERROR      "Ошибка воспроизведения звука"
 #define LNG_ALL_ACTS_DISABLED     "Не задано активных действий"
 /* ----------------------------------------- */
 

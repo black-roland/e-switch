@@ -30,9 +30,16 @@
 #define LNG_WALL_CHANGE           "Wallpaper change"
 #define LNG_WALL_WHEN_SW          "Change wallpaper at switch"
 #define LNG_WALLPAPERS            "Wallpapers"
+#define LNG_AUTOSWITCH            "Autoswitching"
+#define LNG_ENABLEAUTOSWITCH      "Enable autoswitching"
+#define LNG_TIME_SEC              "Time (sec)"
+#define LNG_INDICATION            "Indication"
 #define LNG_VIBRATION             "Vibration"
 #define LNG_VIBRATE               "Vibrate when switch"
 #define LNG_VIBRA_TIME            "Vibration time (ms)"
+#define LNG_SOUND                 "Sound"
+#define LNG_SOUND_WHEN_SW         "Sound when switch"
+#define LNG_SOUND_PATH            "Sound path"
 /* ----------------------------------------- */
 
 /* ----------- Messages/Сообщения ---------- */
@@ -41,6 +48,7 @@
 #define LNG_DESKTOP_CLOSE_ERROR   "Error of closing desktop"
 #define LNG_DESKTOP_RUN_ERROR     "Error of launching desktop"
 #define LNG_WALLPAPER_SET_ERROR   "Error of wallpaper change"
+#define LNG_SOUND_PLAY_ERROR      "Sound playback error"
 #define LNG_ALL_ACTS_DISABLED     "Not specified active operations"
 /* ----------------------------------------- */
 
